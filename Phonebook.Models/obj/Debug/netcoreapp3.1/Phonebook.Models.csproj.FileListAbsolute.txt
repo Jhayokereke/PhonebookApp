@@ -1,0 +1,9 @@
+C:\Users\hp\Git Repository\Week 5\Phonebook.Models\bin\Debug\netcoreapp3.1\Phonebook.Models.deps.json
+C:\Users\hp\Git Repository\Week 5\Phonebook.Models\bin\Debug\netcoreapp3.1\Phonebook.Models.dll
+C:\Users\hp\Git Repository\Week 5\Phonebook.Models\bin\Debug\netcoreapp3.1\Phonebook.Models.pdb
+C:\Users\hp\Git Repository\Week 5\Phonebook.Models\obj\Debug\netcoreapp3.1\Phonebook.Models.csprojAssemblyReference.cache
+C:\Users\hp\Git Repository\Week 5\Phonebook.Models\obj\Debug\netcoreapp3.1\Phonebook.Models.AssemblyInfoInputs.cache
+C:\Users\hp\Git Repository\Week 5\Phonebook.Models\obj\Debug\netcoreapp3.1\Phonebook.Models.AssemblyInfo.cs
+C:\Users\hp\Git Repository\Week 5\Phonebook.Models\obj\Debug\netcoreapp3.1\Phonebook.Models.csproj.CoreCompileInputs.cache
+C:\Users\hp\Git Repository\Week 5\Phonebook.Models\obj\Debug\netcoreapp3.1\Phonebook.Models.dll
+C:\Users\hp\Git Repository\Week 5\Phonebook.Models\obj\Debug\netcoreapp3.1\Phonebook.Models.pdb
