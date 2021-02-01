@@ -26,3 +26,4 @@ C:\Users\hp\Git Repository\Week 5\Phonebook.UI\bin\Debug\netcoreapp3.1\Phonebook
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\bin\Debug\netcoreapp3.1\Phonebook.Services.pdb
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\bin\Debug\netcoreapp3.1\Phonebook.DataAccessLayer.pdb
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.csproj.CopyComplete
+C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.Properties.Resources.resources

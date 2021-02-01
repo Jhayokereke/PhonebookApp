@@ -34,12 +34,14 @@ namespace PhonebookTests
             string phonenumber = "+2348190993394";
             string phonenumber1 = "+234803216789";
             string phonenumber2 = "02458886334560";
+            string phonenumber3 = "02456ghhgfddgj";
 
             //Act
             //Assert
             Assert.IsTrue(validation.ValidatePhonenumber(phonenumber));
             Assert.IsFalse(validation.ValidatePhonenumber(phonenumber1));
             Assert.IsFalse(validation.ValidatePhonenumber(phonenumber2));
+            Assert.IsFalse(validation.ValidatePhonenumber(phonenumber3));
         }
     }
 }
