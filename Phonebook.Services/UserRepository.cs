@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Phonebook.Services
 {
-    class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly IAddressRepository _addressRepo;
 
@@ -93,6 +93,28 @@ namespace Phonebook.Services
             return userToReturn;
         }
 
+        public IUser GetUserByEmail(string email)
+        {
+            IUser userToReturn = new User();
+            string cmdtxt = @"select * from tblUser";
+
+            DataTable tbl = _dataReader.ReadFromDatabase(cmdtxt);
+            foreach (DataRow add in tbl.Select($"Email = '{email}'"))
+            {
+                userToReturn.UserID = (string)add["UserID"];
+                userToReturn.FirstName = (string)add["FirstName"];
+                userToReturn.LastName = (string)add["LastName"];
+                userToReturn.Email = (string)add["Email"];
+                userToReturn.MainPhoneNumber = (string)add["MainPhoneNumber"];
+                userToReturn.UserType = (string)add["UserType"];
+                userToReturn.Address = _addressRepo.GetAddress(userToReturn.UserID);
+                userToReturn.PhoneNumber = _phonenumberRepo.GetPhonenumbers(userToReturn.UserID);
+                userToReturn.SocialMediaHandles = _socialMediaRepo.GetSocialMediaHandle(userToReturn.UserID);
+            }
+
+            return userToReturn;
+        }
+
         public List<IUser> GetAllUsers()
         {
             List<IUser> Users = new List<IUser>();
@@ -164,6 +186,11 @@ namespace Phonebook.Services
             }
 
             return Users;
+        }
+
+        public Tuple<string, byte[], byte[]> GetAuth(string email, string password)
+        {
+            throw new NotImplementedException();
         }
     }
 }

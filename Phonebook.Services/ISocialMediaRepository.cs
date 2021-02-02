@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Phonebook.Services
 {
-    interface ISocialMediaRepository
+    public interface ISocialMediaRepository
     {
         Task<bool> AddSocialMediaHandle(string userid, string handle);
         Dictionary<string, string> GetSocialMediaHandle(string userid);

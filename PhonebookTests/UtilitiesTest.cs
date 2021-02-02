@@ -10,15 +10,14 @@ namespace PhonebookTests
         public void TestEmailValidation()
         {
             //Arrange
-            Validation validation = new Validation();
             string email = "jhayphantom-man@yaho.co.uk";
             string email1 = "chukwuemeka@decagon.dev";
             string email2 = "bright---adams@dechq.com.ng";
 
             //Act
-            bool validEmail = validation.ValidateEmail(email);
-            bool validEmail1 = validation.ValidateEmail(email1);
-            bool validEmail2 = validation.ValidateEmail(email2);
+            bool validEmail = Validation.ValidateEmail(email);
+            bool validEmail1 = Validation.ValidateEmail(email1);
+            bool validEmail2 = Validation.ValidateEmail(email2);
 
             //Assert
             Assert.IsTrue(validEmail);
@@ -30,7 +29,6 @@ namespace PhonebookTests
         public void TestPhonenumberValidation()
         {
             //Arrange
-            Validation validation = new Validation();
             string phonenumber = "+2348190993394";
             string phonenumber1 = "+234803216789";
             string phonenumber2 = "02458886334560";
@@ -38,26 +36,25 @@ namespace PhonebookTests
 
             //Act
             //Assert
-            Assert.IsTrue(validation.ValidatePhonenumber(phonenumber));
-            Assert.IsFalse(validation.ValidatePhonenumber(phonenumber1));
-            Assert.IsFalse(validation.ValidatePhonenumber(phonenumber2));
-            Assert.IsFalse(validation.ValidatePhonenumber(phonenumber3));
+            Assert.IsTrue(Validation.ValidatePhonenumber(phonenumber));
+            Assert.IsFalse(Validation.ValidatePhonenumber(phonenumber1));
+            Assert.IsFalse(Validation.ValidatePhonenumber(phonenumber2));
+            Assert.IsFalse(Validation.ValidatePhonenumber(phonenumber3));
         }
 
         [TestMethod]
 
         public void TestNameValidation()
         {
-            Validation validation = new Validation();
             string name = "Shade";
             string name2 = "shade-";
             string name3 = "Sha7de";
             string name4 = "5shade";
 
-            Assert.IsTrue(validation.ValidateName(name));
-            Assert.IsFalse(validation.ValidateName(name2));
-            Assert.IsFalse(validation.ValidateName(name3));
-            Assert.IsFalse(validation.ValidateName(name4));
+            Assert.IsTrue(Validation.ValidateName(name));
+            Assert.IsFalse(Validation.ValidateName(name2));
+            Assert.IsFalse(Validation.ValidateName(name3));
+            Assert.IsFalse(Validation.ValidateName(name4));
         }
     }
 }

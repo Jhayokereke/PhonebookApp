@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Phonebook.Services
 {
-    class SocialMediaRepository : ISocialMediaRepository
+    public class SocialMediaRepository : ISocialMediaRepository
     {
         private readonly DataReader _dataReader;
         public SocialMediaRepository()

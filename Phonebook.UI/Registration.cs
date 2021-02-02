@@ -20,8 +20,6 @@ namespace Phonebook.UI
             Homepage h = new Homepage();
             
             h.Show();
-
-            this.Dispose();
         }
     }
 }

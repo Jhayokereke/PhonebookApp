@@ -523,7 +523,8 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Phonebook.Models >= 1.0.0",
-      "Phonebook.Services >= 1.0.0"
+      "Phonebook.Services >= 1.0.0",
+      "Phonebook.Utilities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -558,6 +559,9 @@
             },
             "C:\\Users\\hp\\Git Repository\\Week 5\\Phonebook.Services\\Phonebook.Services.csproj": {
               "projectPath": "C:\\Users\\hp\\Git Repository\\Week 5\\Phonebook.Services\\Phonebook.Services.csproj"
+            },
+            "C:\\Users\\hp\\Git Repository\\Week 5\\Phonebook.Utilities\\Phonebook.Utilities.csproj": {
+              "projectPath": "C:\\Users\\hp\\Git Repository\\Week 5\\Phonebook.Utilities\\Phonebook.Utilities.csproj"
             }
           }
         }

@@ -114,7 +114,7 @@ namespace Phonebook.UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(157)))), ((int)(((byte)(151)))));
-            this.ClientSize = new System.Drawing.Size(504, 320);
+            this.ClientSize = new System.Drawing.Size(493, 338);
             this.Controls.Add(this.back_link);
             this.Controls.Add(this.delete_btn);
             this.Controls.Add(this.update_btn);

@@ -9,7 +9,8 @@
       "Phonebook.UI/1.0.0": {
         "dependencies": {
           "Phonebook.Models": "1.0.0",
-          "Phonebook.Services": "1.0.0"
+          "Phonebook.Services": "1.0.0",
+          "Phonebook.Utilities": "1.0.0"
         },
         "runtime": {
           "Phonebook.UI.dll": {}

@@ -1,10 +1,17 @@
-﻿using System.Threading;
+﻿using Phonebook.Utilities;
+using Phonebook.Services;
+using System;
+using System.Threading;
 using System.Windows.Forms;
+using Phonebook.Models;
+using Phonebook.Utilities.Helpers;
 
 namespace Phonebook.UI
 {
     internal class Homepage : Form
     {
+        private readonly IUserRepository _userRepo;
+
         private TextBox email_textbox;
         private TextBox password_textBox;
         private Button sign_in_button;
@@ -20,6 +27,7 @@ namespace Phonebook.UI
         public Homepage()
         {
             this.InitializeComponent();
+            _userRepo = new UserRepository();
         }
         private void InitializeComponent()
         {
@@ -79,6 +87,7 @@ namespace Phonebook.UI
             this.sign_in_button.TabIndex = 3;
             this.sign_in_button.Text = "Sign in";
             this.sign_in_button.UseVisualStyleBackColor = false;
+            this.sign_in_button.Click += new System.EventHandler(this.sign_in_button_Click);
             // 
             // forgotPassword
             // 
@@ -185,7 +194,39 @@ namespace Phonebook.UI
         {
             Registration r =  new Registration();
             r.Show();
-            this.Close();
+        }
+
+        private void sign_in_button_Click(object sender, System.EventArgs e)
+        {
+            string email = email_textbox.Text;
+            string password = password_textBox.Text;
+            IUser user = new User();
+            Tuple<string, byte[], byte[]> tuple;
+            try
+            {
+                if (Validation.ValidateEmail(email))
+                {
+                    tuple = _userRepo.GetAuth(email, password);
+                    if (PasswordEncryptor.ComparePassword(tuple.Item2, tuple.Item3, password))
+                    {
+                        user = _userRepo.GetUserByEmail(email);
+                        AdminLogin a = new AdminLogin(user);
+                        a.Show();
+                    }
+                    else
+                    {
+                        throw new FormatException("Invalid email or password!");
+                    }
+                }
+                else
+                {
+                    throw new FormatException("Invalid email or password!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
