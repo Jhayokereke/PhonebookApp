@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Phonebook.DataAccessLayer\Phonebook.DataAccessLayer.csproj" />
     <ProjectReference Include="..\Phonebook.Models\Phonebook.Models.csproj" />
+    <ProjectReference Include="..\Phonebook.Utilities\Phonebook.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

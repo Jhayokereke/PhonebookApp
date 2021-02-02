@@ -35,10 +35,17 @@ namespace Phonebook.Services
             return phonenumbers;
         }
 
+        public async Task<bool> UpdatePhonenumber(string userid, string phonenum, string newPhonenum)
+        {
+            //Updates phonenumber in database
+            string cmdtxt = @"Update tblPhonenumber set Phonenumber='" + newPhonenum + "' where UserID='" + userid + "', Phonenumber='" + phonenum + "'";
+            return await _dataReader.UpdateDatabase(cmdtxt);
+        }
+
         public async Task<bool> DeletePhonenumber(string userid, string phonenum)
         {
             //Deletes phonenumber from database
-            string cmdtxt = @"Update tblPhonenumber where UserID='"+userid+ "', Phonenumber='" + phonenum + "'";
+            string cmdtxt = @"Delete tblPhonenumber where UserID='"+userid+ "', Phonenumber='" + phonenum + "'";
             return await _dataReader.UpdateDatabase(cmdtxt);
         }
     }

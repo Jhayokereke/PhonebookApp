@@ -147,11 +147,24 @@
       "Phonebook.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Phonebook.Utilities": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Phonebook.Models.dll": {}
         },
         "runtime": {
           "bin/placeholder/Phonebook.Models.dll": {}
+        }
+      },
+      "Phonebook.Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Phonebook.Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Phonebook.Utilities.dll": {}
         }
       }
     }
@@ -479,12 +492,18 @@
       "type": "project",
       "path": "../Phonebook.Models/Phonebook.Models.csproj",
       "msbuildProject": "../Phonebook.Models/Phonebook.Models.csproj"
+    },
+    "Phonebook.Utilities/1.0.0": {
+      "type": "project",
+      "path": "../Phonebook.Utilities/Phonebook.Utilities.csproj",
+      "msbuildProject": "../Phonebook.Utilities/Phonebook.Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Phonebook.DataAccessLayer >= 1.0.0",
       "Phonebook.Models >= 1.0.0",
+      "Phonebook.Utilities >= 1.0.0",
       "System.Data.SqlClient >= 4.8.2"
     ]
   },
@@ -520,6 +539,9 @@
             },
             "C:\\Users\\hp\\Git Repository\\Week 5\\Phonebook.Models\\Phonebook.Models.csproj": {
               "projectPath": "C:\\Users\\hp\\Git Repository\\Week 5\\Phonebook.Models\\Phonebook.Models.csproj"
+            },
+            "C:\\Users\\hp\\Git Repository\\Week 5\\Phonebook.Utilities\\Phonebook.Utilities.csproj": {
+              "projectPath": "C:\\Users\\hp\\Git Repository\\Week 5\\Phonebook.Utilities\\Phonebook.Utilities.csproj"
             }
           }
         }

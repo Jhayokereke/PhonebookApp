@@ -42,14 +42,7 @@ namespace Phonebook.Services
         public async Task<bool> UpdateAddress(string userid, Address address)
         {
             //Updates Address in database
-            string cmdtxt = @"Update tblSocialMediaHandle set Street='" + address.Street + "', City='" + address.City + "', State='" + address.State + "', ZipCode='" + address.ZipCode + "', Country='" + address.Country + "' where UserID='" + userid + "'";
-            return await _dataReader.UpdateDatabase(cmdtxt);
-        }
-
-        public async Task<bool> DeleteSocialMediaHandle(string userid)
-        {
-            //Deletes Address from database
-            string cmdtxt = @"Delete tblSocialMediaHandle where UserID='" + userid + "'";
+            string cmdtxt = @"Update tblAddress set Street='" + address.Street + "', City='" + address.City + "', State='" + address.State + "', ZipCode='" + address.ZipCode + "', Country='" + address.Country + "' where UserID='" + userid + "'";
             return await _dataReader.UpdateDatabase(cmdtxt);
         }
     }

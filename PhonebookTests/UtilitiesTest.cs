@@ -11,7 +11,7 @@ namespace PhonebookTests
         {
             //Arrange
             Validation validation = new Validation();
-            string email = "jhayphantom_man@yaho.co.uk";
+            string email = "jhayphantom-man@yaho.co.uk";
             string email1 = "chukwuemeka@decagon.dev";
             string email2 = "bright---adams@dechq.com.ng";
 
@@ -27,7 +27,7 @@ namespace PhonebookTests
         }
 
         [TestMethod]
-        public void TestPhonenumber()
+        public void TestPhonenumberValidation()
         {
             //Arrange
             Validation validation = new Validation();
@@ -42,6 +42,22 @@ namespace PhonebookTests
             Assert.IsFalse(validation.ValidatePhonenumber(phonenumber1));
             Assert.IsFalse(validation.ValidatePhonenumber(phonenumber2));
             Assert.IsFalse(validation.ValidatePhonenumber(phonenumber3));
+        }
+
+        [TestMethod]
+
+        public void TestNameValidation()
+        {
+            Validation validation = new Validation();
+            string name = "Shade";
+            string name2 = "shade-";
+            string name3 = "Sha7de";
+            string name4 = "5shade";
+
+            Assert.IsTrue(validation.ValidateName(name));
+            Assert.IsFalse(validation.ValidateName(name2));
+            Assert.IsFalse(validation.ValidateName(name3));
+            Assert.IsFalse(validation.ValidateName(name4));
         }
     }
 }

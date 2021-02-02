@@ -10,6 +10,7 @@
         "dependencies": {
           "Phonebook.DataAccessLayer": "1.0.0",
           "Phonebook.Models": "1.0.0",
+          "Phonebook.Utilities": "1.0.0",
           "System.Data.SqlClient": "4.8.2"
         },
         "runtime": {
@@ -100,8 +101,16 @@
         }
       },
       "Phonebook.Models/1.0.0": {
+        "dependencies": {
+          "Phonebook.Utilities": "1.0.0"
+        },
         "runtime": {
           "Phonebook.Models.dll": {}
+        }
+      },
+      "Phonebook.Utilities/1.0.0": {
+        "runtime": {
+          "Phonebook.Utilities.dll": {}
         }
       }
     }
@@ -181,6 +190,11 @@
       "sha512": ""
     },
     "Phonebook.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Phonebook.Utilities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -8,6 +8,5 @@ namespace Phonebook.Services
         Task<bool> AddAddress(string userid, Address add);
         Address GetAddress(string userid);
         Task<bool> UpdateAddress(string userid, Address address);
-        Task<bool> DeleteSocialMediaHandle(string userid);
     }
 }

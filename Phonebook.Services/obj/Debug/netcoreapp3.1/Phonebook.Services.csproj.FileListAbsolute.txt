@@ -12,3 +12,5 @@ C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Pho
 C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Phonebook.Services.csproj.CopyComplete
 C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Phonebook.Services.dll
 C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Phonebook.Services.pdb
+C:\Users\hp\Git Repository\Week 5\Phonebook.Services\bin\Debug\netcoreapp3.1\Phonebook.Utilities.dll
+C:\Users\hp\Git Repository\Week 5\Phonebook.Services\bin\Debug\netcoreapp3.1\Phonebook.Utilities.pdb

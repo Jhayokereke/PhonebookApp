@@ -8,5 +8,6 @@ namespace Phonebook.Services
         Task<bool> AddPhonenumber(string userid, string phonenum);
         List<string> GetPhonenumbers(string userid);
         Task<bool> DeletePhonenumber(string userid, string phonenum);
+        Task<bool> UpdatePhonenumber(string userid, string phonenum, string newPhonenum);
     }
 }

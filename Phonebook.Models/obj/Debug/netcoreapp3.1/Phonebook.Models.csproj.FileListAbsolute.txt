@@ -7,3 +7,6 @@ C:\Users\hp\Git Repository\Week 5\Phonebook.Models\obj\Debug\netcoreapp3.1\Phone
 C:\Users\hp\Git Repository\Week 5\Phonebook.Models\obj\Debug\netcoreapp3.1\Phonebook.Models.csproj.CoreCompileInputs.cache
 C:\Users\hp\Git Repository\Week 5\Phonebook.Models\obj\Debug\netcoreapp3.1\Phonebook.Models.dll
 C:\Users\hp\Git Repository\Week 5\Phonebook.Models\obj\Debug\netcoreapp3.1\Phonebook.Models.pdb
+C:\Users\hp\Git Repository\Week 5\Phonebook.Models\bin\Debug\netcoreapp3.1\Phonebook.Utilities.dll
+C:\Users\hp\Git Repository\Week 5\Phonebook.Models\bin\Debug\netcoreapp3.1\Phonebook.Utilities.pdb
+C:\Users\hp\Git Repository\Week 5\Phonebook.Models\obj\Debug\netcoreapp3.1\Phonebook.Models.csproj.CopyComplete

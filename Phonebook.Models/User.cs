@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Phonebook.Utilities.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace Phonebook.Models
@@ -15,12 +16,14 @@ namespace Phonebook.Models
 
         public List<string> PhoneNumber { get; set; }
 
-        public string PasswordHash { get; set; }
+        public byte[] PasswordHash { get; set; }
 
-        public string PasswordSalt { get; set; }
+        public byte[] PasswordSalt { get; set; }
 
         public Address Address { get; set; }
 
-        public List<string> SocialMediaHandles { get; set; }
+        public Dictionary<string, string> SocialMediaHandles { get; set; }
+        public string MainPhoneNumber { get; set; }
+        public string UserType { get; set; }
     }
 }

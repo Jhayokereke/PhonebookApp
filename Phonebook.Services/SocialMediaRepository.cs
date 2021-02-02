@@ -21,16 +21,16 @@ namespace Phonebook.Services
             string cmdtxt = @"insert into tblSocialMediaHandle (UserID, SocialMediaHandle) Values ('" + userid + "', '" + handle + "')";
             return await _dataReader.WriteToDatabase(cmdtxt);
         }
-        public List<string> GetSocialMediaHandle(string userid)
+        public Dictionary<string, string> GetSocialMediaHandle(string userid)
         {
             //retrieves user media handle from database
-            List<string> socialMediaHandles = new List<string>();
+            Dictionary<string, string> socialMediaHandles = new Dictionary<string, string>();
             string cmdtxt = @"select * from tblSocialMediaHandle";
 
             DataTable tbl = _dataReader.ReadFromDatabase(cmdtxt);
             foreach (DataRow add in tbl.Select($"UserID = '{userid}'"))
             {
-                socialMediaHandles.Add((string)add["SocialMediaHandle"]);
+                socialMediaHandles.Add((string)add["MediaType"], (string)add["SocialMediaHandle"]);
             }
             return socialMediaHandles;
         }

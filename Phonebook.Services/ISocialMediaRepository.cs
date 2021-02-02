@@ -6,7 +6,7 @@ namespace Phonebook.Services
     interface ISocialMediaRepository
     {
         Task<bool> AddSocialMediaHandle(string userid, string handle);
-        List<string> GetSocialMediaHandle(string userid);
+        Dictionary<string, string> GetSocialMediaHandle(string userid);
         Task<bool> UpdateSocialMediaHandle(string userid, string newhandle, string mediatype);
         Task<bool> DeleteSocialMediaHandle(string userid, string newhandle, string mediatype);
     }

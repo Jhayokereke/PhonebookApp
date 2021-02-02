@@ -147,6 +147,9 @@
       "Phonebook.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Phonebook.Utilities": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Phonebook.Models.dll": {}
         },
@@ -160,6 +163,7 @@
         "dependencies": {
           "Phonebook.DataAccessLayer": "1.0.0",
           "Phonebook.Models": "1.0.0",
+          "Phonebook.Utilities": "1.0.0",
           "System.Data.SqlClient": "4.8.2"
         },
         "compile": {
@@ -167,6 +171,16 @@
         },
         "runtime": {
           "bin/placeholder/Phonebook.Services.dll": {}
+        }
+      },
+      "Phonebook.Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Phonebook.Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Phonebook.Utilities.dll": {}
         }
       }
     }
@@ -499,6 +513,11 @@
       "type": "project",
       "path": "../Phonebook.Services/Phonebook.Services.csproj",
       "msbuildProject": "../Phonebook.Services/Phonebook.Services.csproj"
+    },
+    "Phonebook.Utilities/1.0.0": {
+      "type": "project",
+      "path": "../Phonebook.Utilities/Phonebook.Utilities.csproj",
+      "msbuildProject": "../Phonebook.Utilities/Phonebook.Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {
