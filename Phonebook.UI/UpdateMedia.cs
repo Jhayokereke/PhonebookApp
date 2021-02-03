@@ -14,8 +14,8 @@ namespace Phonebook.UI
     {
         private readonly ISocialMediaRepository _socialRepo;
         private readonly IUserRepository _userRepo;
-        private IUser _currentuser;
-        public UpdateMedia(IUser currentuser)
+        private User _currentuser;
+        public UpdateMedia(User currentuser)
         {
             InitializeComponent();
             _userRepo = new UserRepository();

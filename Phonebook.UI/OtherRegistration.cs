@@ -14,9 +14,9 @@ namespace Phonebook.UI
     {
         private readonly IPhonenumberRepository _phoneRepo;
         private readonly ISocialMediaRepository _socialRepo;
-        private IUser _user;
+        private User _user;
 
-        public OtherRegistration(IUser user)
+        public OtherRegistration(User user)
         {
             InitializeComponent();
             _user = user;

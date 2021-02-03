@@ -30,7 +30,7 @@ namespace Phonebook.Services
             _fileIO = new FileIO();
         }
 
-        public IUser CreateUser(string firstName, string lastName, string email, string phonenumber, string password, List<string> phonenumbers)
+        public User CreateUser(string firstName, string lastName, string email, string phonenumber, string password, List<string> phonenumbers)
         {
             string userId = Guid.NewGuid().ToString().Substring(9, 12);
             List<byte[]> encryptedPassword = PasswordEncryptor.EncryptPassword(password);
@@ -49,7 +49,7 @@ namespace Phonebook.Services
             return newUser;
         }
 
-        public void SetUserType(IUser user, string type)
+        public void SetUserType(User user, string type)
         {
             if (type == UserType.Admin.ToString())
             {
@@ -61,15 +61,15 @@ namespace Phonebook.Services
             }
         }
 
-        public async Task<bool> AddUser(IUser user)
+        public async Task<bool> AddUser(User user)
         {
             string cmdtxt = @"insert into tblUser (UserID, FirstName, LastName, Email, UserType) values ('" + user.UserID + "', '" + user.FirstName + "', '" + user.LastName + "', '" + user.Email + "', '" + user.UserType + "')";
             return await _dataReader.WriteToDatabase(cmdtxt);
         }
 
-        public IUser GetUser(string userid)
+        public User GetUser(string userid)
         {
-            IUser userToReturn = new User();
+            User userToReturn = new User();
             string cmdtxt = @"select * from tblUser";
 
             DataTable tbl = _dataReader.ReadFromDatabase(cmdtxt);
@@ -89,9 +89,9 @@ namespace Phonebook.Services
             return userToReturn;
         }
 
-        public IUser GetUserByEmail(string email)
+        public User GetUserByEmail(string email)
         {
-            IUser userToReturn = new User();
+            User userToReturn = new User();
             string cmdtxt = @"select * from tblUser";
 
             DataTable tbl = _dataReader.ReadFromDatabase(cmdtxt);
@@ -111,16 +111,16 @@ namespace Phonebook.Services
             return userToReturn;
         }
 
-        public List<IUser> GetAllUsers()
+        public List<User> GetAllUsers()
         {
-            List<IUser> Users = new List<IUser>();
+            List<User> Users = new List<User>();
 
             string cmdtxt = @"select * from tblUser";
 
             DataTable tbl = _dataReader.ReadFromDatabase(cmdtxt);
             foreach (DataRow add in tbl.Select())
             {
-                IUser user = new User
+                User user = new User
                 {
                     UserID = (string)add["UserID"],
                     FirstName = (string)add["FirstName"],
@@ -139,16 +139,16 @@ namespace Phonebook.Services
             return Users;
         }
 
-        public List<IUser> GetUsers(string name)
+        public List<User> GetUsers(string name)
         {
-            List<IUser> Users = new List<IUser>();
+            List<User> Users = new List<User>();
 
             string cmdtxt = @"select * from tblUser";
 
             DataTable tbl = _dataReader.ReadFromDatabase(cmdtxt);
             foreach (DataRow add in tbl.Select($"FirstName='{name}'"))
             {
-                IUser user = new User
+                User user = new User
                 {
                     UserID = (string)add["UserID"],
                     FirstName = (string)add["FirstName"],
@@ -165,7 +165,7 @@ namespace Phonebook.Services
             }
             foreach (DataRow add in tbl.Select($"LastName='{name}'"))
             {
-                IUser user = new User
+                User user = new User
                 {
                     UserID = (string)add["UserID"],
                     FirstName = (string)add["FirstName"],

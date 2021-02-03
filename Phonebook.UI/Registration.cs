@@ -61,7 +61,7 @@ namespace Phonebook.UI
                         password = password_txtbox.Text;
                     List<string> phoneNumber = new List<string>() { phonenumber_txtbox.Text };
                     _userRepo.StorePassword(email, password);
-                    IUser newUser = _userRepo.CreateUser(firstName, lastName, email, mainPhoneNumber, password, phoneNumber);
+                    User newUser = _userRepo.CreateUser(firstName, lastName, email, mainPhoneNumber, password, phoneNumber);
                     bool addedSuccesfully = await _userRepo.AddUser(newUser);
                     bool success = await _phoneRepo.AddPhonenumber(newUser.UserID, mainPhoneNumber, true);
                     if (!addedSuccesfully||!success)

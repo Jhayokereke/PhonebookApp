@@ -16,8 +16,8 @@ namespace Phonebook.UI
         private readonly IAddressRepository _addressRepo;
         private readonly IPhonenumberRepository _phoneRepo;
         private readonly ISocialMediaRepository _mediaRepo;
-        private readonly IUser _user;
-        public Login(IUser user)
+        private readonly User _user;
+        public Login(User user)
         {
             InitializeComponent();
             _user = user;
@@ -35,7 +35,7 @@ namespace Phonebook.UI
             display_box.Text = OutputSchema(_user);
         }
 
-        public string OutputSchema(IUser user)
+        public string OutputSchema(User user)
         {
             string output = $"Name: {user.FirstName} {user.LastName}" +
                 $"\nAddress: {user.Address.Street}, {user.Address.City}, {user.Address.State}, {user.Address.ZipCode}, {user.Address.Country}." +
@@ -46,7 +46,7 @@ namespace Phonebook.UI
 
         private void view_all_btn_Click(object sender, EventArgs e)
         {
-            List<IUser> AllUsers = _userRepo.GetAllUsers();
+            List<User> AllUsers = _userRepo.GetAllUsers();
             string output = "";
             foreach (var user in AllUsers)
             {

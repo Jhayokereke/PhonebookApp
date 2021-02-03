@@ -12,9 +12,9 @@ namespace Phonebook.UI
 {
     public partial class UpdateAddress : Form
     {
-        private IUser _user;
+        private User _user;
         private readonly IAddressRepository _addressRepo;
-        public UpdateAddress(IUser currentuser)
+        public UpdateAddress(User currentuser)
         {
             InitializeComponent();
             _user = currentuser;

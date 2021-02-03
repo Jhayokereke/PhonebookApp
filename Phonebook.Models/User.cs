@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Phonebook.Models
 {
-    public class User : IUser
+    public class User
     {
         public string UserID { get; set; }
 

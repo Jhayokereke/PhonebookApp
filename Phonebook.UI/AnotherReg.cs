@@ -14,8 +14,8 @@ namespace Phonebook.UI
     {
         private readonly IUserRepository _userRepo;
         private readonly IAddressRepository _addressRepository;
-        private IUser _user;
-        public AnotherReg(IUser user)
+        private User _user;
+        public AnotherReg(User user)
         {
             InitializeComponent();
             _user = user;

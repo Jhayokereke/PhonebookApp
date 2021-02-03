@@ -14,9 +14,9 @@ namespace Phonebook.UI
     public partial class UpdatePhone : Form
     {
         private readonly IPhonenumberRepository _phoneRepo;
-        private IUser _currentuser;
+        private User _currentuser;
 
-        public UpdatePhone(IUser currentuser)
+        public UpdatePhone(User currentuser)
         {
             InitializeComponent();
             _phoneRepo = new PhonenumberRepository();

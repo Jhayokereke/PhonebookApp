@@ -1,6 +1,6 @@
 ﻿namespace Phonebook.Models
 {
-    public class Address : IAddress
+    public class Address
     {
         public string Street { get; set; }
 

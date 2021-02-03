@@ -202,7 +202,7 @@ namespace Phonebook.UI
         {
             string email = email_textbox.Text;
             string password = password_textBox.Text;
-            IUser user = new User();
+            User user = new User();
             try
             {
                 if (string.IsNullOrWhiteSpace(email)||string.IsNullOrWhiteSpace(password))
