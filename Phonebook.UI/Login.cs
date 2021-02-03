@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Phonebook.UI
 {
-    public partial class AdminLogin : Form
+    public partial class Login : Form
     {
         private readonly IUserRepository _userRepo;
         private readonly IAddressRepository _addressRepo;
         private readonly IPhonenumberRepository _phoneRepo;
         private readonly ISocialMediaRepository _mediaRepo;
         private readonly IUser _user;
-        public AdminLogin(IUser user)
+        public Login(IUser user)
         {
             InitializeComponent();
             _user = user;

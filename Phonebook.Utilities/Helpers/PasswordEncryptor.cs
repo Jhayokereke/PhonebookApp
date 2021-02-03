@@ -26,7 +26,7 @@ namespace Phonebook.Utilities.Helpers
             return result;
         }
 
-        public static bool ComparePassword(byte[] passwordSalt, byte[] passwordHash, string password)
+        public static bool ComparePassword(byte[] passwordHash, byte[] passwordSalt, string password)
         {
             using (var hash = new System.Security.Cryptography.HMACSHA512(passwordSalt))
             {

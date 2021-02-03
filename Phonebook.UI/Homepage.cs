@@ -26,7 +26,7 @@ namespace Phonebook.UI
 
         public Homepage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             _userRepo = new UserRepository();
         }
         private void InitializeComponent()
@@ -192,8 +192,10 @@ namespace Phonebook.UI
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Hide();
             Registration r =  new Registration();
-            r.Show();
+            r.ShowDialog();
+            Show();
         }
 
         private void sign_in_button_Click(object sender, System.EventArgs e)
@@ -210,7 +212,7 @@ namespace Phonebook.UI
                     if (PasswordEncryptor.ComparePassword(tuple.Item2, tuple.Item3, password))
                     {
                         user = _userRepo.GetUserByEmail(email);
-                        AdminLogin a = new AdminLogin(user);
+                        Login a = new Login(user);
                         a.Show();
                     }
                     else

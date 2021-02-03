@@ -31,7 +31,7 @@ namespace Phonebook.UI
         {
             this.firstName_txtbox = new System.Windows.Forms.TextBox();
             this.lastname_txtbox = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.phonenumber_txtbox = new System.Windows.Forms.TextBox();
             this.email_txtbox = new System.Windows.Forms.TextBox();
             this.confirm_password_txtbox = new System.Windows.Forms.TextBox();
             this.password_txtbox = new System.Windows.Forms.TextBox();
@@ -65,14 +65,14 @@ namespace Phonebook.UI
             this.lastname_txtbox.Size = new System.Drawing.Size(426, 28);
             this.lastname_txtbox.TabIndex = 1;
             // 
-            // textBox2
+            // phonenumber_txtbox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(37, 268);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "+2340000000000";
-            this.textBox2.Size = new System.Drawing.Size(426, 28);
-            this.textBox2.TabIndex = 3;
+            this.phonenumber_txtbox.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.phonenumber_txtbox.Location = new System.Drawing.Point(37, 268);
+            this.phonenumber_txtbox.Name = "phonenumber_txtbox";
+            this.phonenumber_txtbox.PlaceholderText = "+2340000000000";
+            this.phonenumber_txtbox.Size = new System.Drawing.Size(426, 28);
+            this.phonenumber_txtbox.TabIndex = 3;
             // 
             // email_txtbox
             // 
@@ -113,6 +113,7 @@ namespace Phonebook.UI
             this.signup_button.TabIndex = 6;
             this.signup_button.Text = "Sign up";
             this.signup_button.UseVisualStyleBackColor = false;
+            this.signup_button.Click += new System.EventHandler(this.signup_button_ClickAsync);
             // 
             // firstname_label
             // 
@@ -220,11 +221,11 @@ namespace Phonebook.UI
             this.Controls.Add(this.signup_button);
             this.Controls.Add(this.confirm_password_txtbox);
             this.Controls.Add(this.password_txtbox);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.phonenumber_txtbox);
             this.Controls.Add(this.email_txtbox);
             this.Controls.Add(this.lastname_txtbox);
             this.Controls.Add(this.firstName_txtbox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "Registration";
             this.Text = "Form2";
@@ -237,7 +238,7 @@ namespace Phonebook.UI
 
         private System.Windows.Forms.TextBox firstName_txtbox;
         private System.Windows.Forms.TextBox lastname_txtbox;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox phonenumber_txtbox;
         private System.Windows.Forms.TextBox email_txtbox;
         private System.Windows.Forms.TextBox confirm_password_txtbox;
         private System.Windows.Forms.TextBox password_txtbox;

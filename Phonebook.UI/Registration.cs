@@ -1,25 +1,82 @@
-﻿using System;
+﻿using Phonebook.Models;
+using Phonebook.Services;
+using Phonebook.Utilities;
+using Phonebook.Utilities.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Phonebook.UI
 {
     public partial class Registration : Form
     {
+        private readonly IUserRepository _userRepo;
+
         public Registration()
         {
             InitializeComponent();
+            _userRepo = new UserRepository();
         }
 
         private void signin_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Homepage h = new Homepage();
-            
-            h.Show();
+            Close();
+        }
+
+        private async void signup_button_ClickAsync(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!Validation.ValidateName(firstName_txtbox.Text))
+                {
+                    throw new FormatException("Invalid firstname!");
+                }
+                if (!Validation.ValidateName(lastname_txtbox.Text))
+                {
+                    throw new FormatException("Invalid lastname!");
+                }
+                if (!Validation.ValidateEmail(email_txtbox.Text))
+                {
+                    throw new FormatException("Invalid email!");
+                }
+                if (!Validation.ValidatePhonenumber(phonenumber_txtbox.Text))
+                {
+                    throw new FormatException("Invalid phonenumber!");
+                }
+                if (password_txtbox.Text != confirm_password_txtbox.Text)
+                {
+                    throw new FormatException("Password does not match!");
+                }
+                else
+                {
+                    string firstName = firstName_txtbox.Text,lastName = lastname_txtbox.Text,
+                        email = email_txtbox.Text, mainPhoneNumber = phonenumber_txtbox.Text,
+                        password = password_txtbox.Text;
+                    List<string> phoneNumber = new List<string>() { phonenumber_txtbox.Text };
+
+                    IUser newUser = _userRepo.CreateUser(firstName, lastName, email, mainPhoneNumber, password, phoneNumber);
+                    bool addedSuccesfully = await _userRepo.AddUser(newUser);
+                    if (!addedSuccesfully)
+                    {
+                        throw new DataException("Oops! Please try again.");
+                    }
+
+                    MessageBox.Show(this, "Successful");
+                    Login l = new Login(newUser);
+                    Hide();
+                    l.ShowDialog();
+                    Close();
+                }
+            }
+            catch (Exception es)
+            {
+                MessageBox.Show(this, es.Message);
+            }
         }
     }
 }

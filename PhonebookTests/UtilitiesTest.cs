@@ -28,14 +28,11 @@ namespace PhonebookTests
         [TestMethod]
         public void TestPhonenumberValidation()
         {
-            //Arrange
             string phonenumber = "+2348190993394";
             string phonenumber1 = "+234803216789";
             string phonenumber2 = "02458886334560";
             string phonenumber3 = "02456ghhgfddgj";
 
-            //Act
-            //Assert
             Assert.IsTrue(Validation.ValidatePhonenumber(phonenumber));
             Assert.IsFalse(Validation.ValidatePhonenumber(phonenumber1));
             Assert.IsFalse(Validation.ValidatePhonenumber(phonenumber2));

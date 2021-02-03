@@ -27,9 +27,9 @@ namespace Phonebook.Services
             _dataReader = new DataReader();
         }
 
-        public IUser CreateUser(string firstName, string lastName, string email, string phonenumber, string password, Address address, List<string> phonenumbers, Dictionary<string, string> mediahandles)
+        public IUser CreateUser(string firstName, string lastName, string email, string phonenumber, string password, List<string> phonenumbers)
         {
-            string userId = new Guid().ToString().Substring(2, 5);
+            string userId = Guid.NewGuid().ToString().Substring(9, 12);
             List<byte[]> encryptedPassword = PasswordEncryptor.EncryptPassword(password);
             User newUser = new User()
             {
@@ -40,9 +40,8 @@ namespace Phonebook.Services
                 MainPhoneNumber = phonenumber,
                 PasswordHash = encryptedPassword[0],
                 PasswordSalt = encryptedPassword[1],
-                Address = address,
                 PhoneNumber = phonenumbers,
-                SocialMediaHandles = mediahandles
+                UserType = UserType.Regular.ToString()
             };
             return newUser;
         }
@@ -61,13 +60,7 @@ namespace Phonebook.Services
 
         public async Task<bool> AddUser(IUser user)
         {
-            await _addressRepo.AddAddress(user.UserID, user.Address);
-            foreach (var num in user.PhoneNumber)
-            {
-                await _phonenumberRepo.AddPhonenumber(user.UserID, num);
-            }
-
-            string cmdtxt = @"insert into tblUser UserID='" + user.UserID + "', FirstName='" + user.FirstName + "', LastName='" + user.LastName + "', Email='" + user.Email + "', MainPhoneNumber='" + user.MainPhoneNumber + "', UserType='" + user.UserType + "'";
+            string cmdtxt = @"insert into tblUser (UserID, FirstName, LastName, Email, MainPhoneNumber, UserType) values ('" + user.UserID + "', '" + user.FirstName + "', '" + user.LastName + "', '" + user.Email + "', '" + user.MainPhoneNumber + "', '" + user.UserType + "')";
             return await _dataReader.WriteToDatabase(cmdtxt);
         }
 

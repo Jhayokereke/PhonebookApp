@@ -28,9 +28,9 @@ C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.Properties.Resources.resources
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\bin\Debug\netcoreapp3.1\Phonebook.Utilities.dll
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\bin\Debug\netcoreapp3.1\Phonebook.Utilities.pdb
-C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.AdminLogin.resources
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.Form6.resources
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.Homepage.resources
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.Registration.resources
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.UpdateMedia.resources
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.UpdatePhone.resources
+C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.Login.resources
