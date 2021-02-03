@@ -56,7 +56,17 @@ namespace Phonebook.UI
             
         }
 
-        private void Edit_btn_Click(object sender, EventArgs e)
+        private void display_box_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clear_btn_Click(object sender, EventArgs e)
+        {
+            display_box.Text = null;
+        }
+
+        private void Edit_btn_Click_1(object sender, EventArgs e)
         {
             update_addr_btn.Visible = true;
             update_media_btn.Visible = true;
@@ -68,6 +78,7 @@ namespace Phonebook.UI
             UpdateAddress ua = new UpdateAddress(_user);
             Hide();
             ua.ShowDialog();
+            Show();
         }
 
         private void update_phone_btn_Click(object sender, EventArgs e)
@@ -83,11 +94,8 @@ namespace Phonebook.UI
             UpdateMedia um = new UpdateMedia(_user);
             Hide();
             um.ShowDialog();
+            Show();
         }
 
-        private void display_box_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

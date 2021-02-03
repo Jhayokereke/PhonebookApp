@@ -41,7 +41,7 @@ namespace Phonebook.UI
             this.street_txtbox = new System.Windows.Forms.TextBox();
             this.Country = new System.Windows.Forms.Label();
             this.update_btn = new System.Windows.Forms.Button();
-            this.add_btn = new System.Windows.Forms.Button();
+            this.back_link = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // address
@@ -164,36 +164,36 @@ namespace Phonebook.UI
             this.update_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.update_btn.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.update_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.update_btn.Location = new System.Drawing.Point(313, 377);
+            this.update_btn.Location = new System.Drawing.Point(373, 361);
             this.update_btn.Name = "update_btn";
-            this.update_btn.Size = new System.Drawing.Size(158, 72);
+            this.update_btn.Size = new System.Drawing.Size(196, 48);
             this.update_btn.TabIndex = 60;
             this.update_btn.Text = "Update";
             this.update_btn.UseVisualStyleBackColor = false;
             this.update_btn.Click += new System.EventHandler(this.update_btn_Click);
             // 
-            // add_btn
+            // back_link
             // 
-            this.add_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(48)))), ((int)(((byte)(85)))));
-            this.add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.add_btn.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.add_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.add_btn.Location = new System.Drawing.Point(93, 377);
-            this.add_btn.Name = "add_btn";
-            this.add_btn.Size = new System.Drawing.Size(158, 72);
-            this.add_btn.TabIndex = 59;
-            this.add_btn.Text = "Add";
-            this.add_btn.UseVisualStyleBackColor = false;
-            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
+            this.back_link.AutoSize = true;
+            this.back_link.Font = new System.Drawing.Font("High Tower Text", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.back_link.LinkColor = System.Drawing.Color.Blue;
+            this.back_link.Location = new System.Drawing.Point(29, 426);
+            this.back_link.Name = "back_link";
+            this.back_link.Size = new System.Drawing.Size(82, 21);
+            this.back_link.TabIndex = 61;
+            this.back_link.TabStop = true;
+            this.back_link.Text = "Go back";
+            this.back_link.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.back_link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.back_link_LinkClicked);
             // 
             // UpdateAddress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(157)))), ((int)(((byte)(151)))));
-            this.ClientSize = new System.Drawing.Size(590, 485);
+            this.ClientSize = new System.Drawing.Size(590, 461);
+            this.Controls.Add(this.back_link);
             this.Controls.Add(this.update_btn);
-            this.Controls.Add(this.add_btn);
             this.Controls.Add(this.countrybox);
             this.Controls.Add(this.zipcode);
             this.Controls.Add(this.zipcode_txtbox);
@@ -226,6 +226,6 @@ namespace Phonebook.UI
         private System.Windows.Forms.TextBox street_txtbox;
         private System.Windows.Forms.Label Country;
         private System.Windows.Forms.Button update_btn;
-        private System.Windows.Forms.Button add_btn;
+        private System.Windows.Forms.LinkLabel back_link;
     }
 }
