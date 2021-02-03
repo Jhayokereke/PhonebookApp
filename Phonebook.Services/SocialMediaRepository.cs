@@ -15,10 +15,10 @@ namespace Phonebook.Services
         {
             _dataReader = new DataReader();
         }
-        public async Task<bool> AddSocialMediaHandle(string userid, string handle)
+        public async Task<bool> AddSocialMediaHandle(string userid, string type, string handle)
         {
             //Adds user media handle to database
-            string cmdtxt = @"insert into tblSocialMediaHandle (UserID, SocialMediaHandle) Values ('" + userid + "', '" + handle + "')";
+            string cmdtxt = @"insert into tblSocialMediaHandle (UserID, MediaType, SocialMediaHandle) Values ('" + userid + "', '" + type + "', '" + handle + "')";
             return await _dataReader.WriteToDatabase(cmdtxt);
         }
         public Dictionary<string, string> GetSocialMediaHandle(string userid)
@@ -42,7 +42,7 @@ namespace Phonebook.Services
             return await _dataReader.UpdateDatabase(cmdtxt);
         }
 
-        public async Task<bool> DeleteSocialMediaHandle(string userid, string newhandle, string mediatype)
+        public async Task<bool> DeleteSocialMediaHandle(string userid, string mediatype)
         {
             //Deletes handle from database
             string cmdtxt = @"Delete tblSocialMediaHandle where UserID='" + userid + "', MediaType='" + mediatype + "'";

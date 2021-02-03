@@ -15,5 +15,7 @@ namespace Phonebook.Services
         List<IUser> GetUsers(string name);
         Tuple<string, byte[], byte[]> GetAuth(string email, string password);
         void SetUserType(IUser user, string type);
+        bool AuthUser(string email, string password);
+        void StorePassword(string email, string password);
     }
 }

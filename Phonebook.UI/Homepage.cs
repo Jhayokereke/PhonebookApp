@@ -203,32 +203,57 @@ namespace Phonebook.UI
             string email = email_textbox.Text;
             string password = password_textBox.Text;
             IUser user = new User();
-            Tuple<string, byte[], byte[]> tuple;
             try
             {
-                if (Validation.ValidateEmail(email))
+                if (string.IsNullOrWhiteSpace(email)||string.IsNullOrWhiteSpace(password))
                 {
-                    tuple = _userRepo.GetAuth(email, password);
-                    if (PasswordEncryptor.ComparePassword(tuple.Item2, tuple.Item3, password))
-                    {
-                        user = _userRepo.GetUserByEmail(email);
-                        Login a = new Login(user);
-                        a.Show();
-                    }
-                    else
-                    {
-                        throw new FormatException("Invalid email or password!");
-                    }
+                    throw new FormatException("Invalid entry!");
                 }
-                else
+                if (_userRepo.AuthUser(email, password))
                 {
-                    throw new FormatException("Invalid email or password!");
+                    user = _userRepo.GetUserByEmail(email);
+                    if (user != null)
+                    {
+                        Login l = new Login(user);
+                        Hide();
+                        l.ShowDialog();
+                        Show();
+                    }
+                    else throw new NullReferenceException("User not found!");
                 }
+                else throw new NullReferenceException("Invalid email or password!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+            //Tuple<string, byte[], byte[]> tuple;
+            //try
+            //{
+            //    if (Validation.ValidateEmail(email))
+            //    {
+            //        tuple = _userRepo.GetAuth(email, password);
+            //        if (PasswordEncryptor.ComparePassword(tuple.Item2, tuple.Item3, password))
+            //        {
+            //            user = _userRepo.GetUserByEmail(email);
+            //            Login a = new Login(user);
+            //            a.Show();
+            //        }
+            //        else
+            //        {
+            //            throw new FormatException("Invalid email or password!");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        throw new FormatException("Invalid email or password!");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
     }
 }

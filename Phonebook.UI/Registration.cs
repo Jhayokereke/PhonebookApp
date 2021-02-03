@@ -16,11 +16,13 @@ namespace Phonebook.UI
     public partial class Registration : Form
     {
         private readonly IUserRepository _userRepo;
+        private readonly IPhonenumberRepository _phoneRepo;
 
         public Registration()
         {
             InitializeComponent();
             _userRepo = new UserRepository();
+            _phoneRepo = new PhonenumberRepository();
         }
 
         private void signin_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -58,18 +60,19 @@ namespace Phonebook.UI
                         email = email_txtbox.Text, mainPhoneNumber = phonenumber_txtbox.Text,
                         password = password_txtbox.Text;
                     List<string> phoneNumber = new List<string>() { phonenumber_txtbox.Text };
-
+                    _userRepo.StorePassword(email, password);
                     IUser newUser = _userRepo.CreateUser(firstName, lastName, email, mainPhoneNumber, password, phoneNumber);
                     bool addedSuccesfully = await _userRepo.AddUser(newUser);
-                    if (!addedSuccesfully)
+                    bool success = await _phoneRepo.AddPhonenumber(newUser.UserID, mainPhoneNumber);
+                    if (!addedSuccesfully||!success)
                     {
                         throw new DataException("Oops! Please try again.");
                     }
-
+                    
                     MessageBox.Show(this, "Successful");
-                    Login l = new Login(newUser);
+                    AnotherReg a = new AnotherReg(newUser);
                     Hide();
-                    l.ShowDialog();
+                    a.ShowDialog();
                     Close();
                 }
             }

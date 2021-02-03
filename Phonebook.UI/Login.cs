@@ -26,5 +26,31 @@ namespace Phonebook.UI
             _phoneRepo = new PhonenumberRepository();
             _userRepo = new UserRepository();
         }
+
+        private void view_details_btn_Click(object sender, EventArgs e)
+        {
+            output_label.Text = OutputSchema(_user);
+        }
+
+        public string OutputSchema(IUser user)
+        {
+            string output = $"Name: {user.FirstName} {user.LastName}" +
+                $"\nAddress: {user.Address.Street}, {user.Address.City}, {user.Address.State}, {user.Address.ZipCode}, {user.Address.Country}." +
+                $"\nPhonenumber: {string.Join(", ", user.PhoneNumber)}" +
+                $"\nSocialMediaHandles: {string.Join("\n\t", user.SocialMediaHandles)}";
+            return output;
+        }
+
+        private void view_all_btn_Click(object sender, EventArgs e)
+        {
+            List<IUser> AllUsers = _userRepo.GetAllUsers();
+            string output = "";
+            foreach (var user in AllUsers)
+            {
+                output += OutputSchema(user) + "\n\n"; 
+            }
+            output_label.Text = output;
+            
+        }
     }
 }

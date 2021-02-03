@@ -18,7 +18,7 @@ namespace Phonebook.Utilities
 
         public static bool ValidatePhonenumber(string phonenumber)
         {
-            Regex myRegex = new Regex(@"^(\+)(\d){13}$");
+            Regex myRegex = new Regex(@"^(\+)(234)(\d){10}$");
             Match match = myRegex.Match(phonenumber); //phonenumber is checked to ensure it follows specific format using regex
             if (!match.Success)
             {

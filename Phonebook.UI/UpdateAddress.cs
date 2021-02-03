@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Phonebook.UI
 {
-    public partial class Form6 : Form
+    public partial class UpdateAddress : Form
     {
-        public Form6()
+        public UpdateAddress()
         {
             InitializeComponent();
         }

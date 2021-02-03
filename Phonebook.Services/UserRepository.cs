@@ -19,12 +19,15 @@ namespace Phonebook.Services
 
         private readonly DataReader _dataReader;
 
+        private readonly FileIO _fileIO;
+
         public UserRepository()
         {
             _addressRepo = new AddressRepository();
             _socialMediaRepo = new SocialMediaRepository();
             _phonenumberRepo = new PhonenumberRepository();
             _dataReader = new DataReader();
+            _fileIO = new FileIO();
         }
 
         public IUser CreateUser(string firstName, string lastName, string email, string phonenumber, string password, List<string> phonenumbers)
@@ -184,6 +187,27 @@ namespace Phonebook.Services
         public Tuple<string, byte[], byte[]> GetAuth(string email, string password)
         {
             throw new NotImplementedException();
+        }
+
+        public bool AuthUser(string email, string password)
+        {
+            //authenticates user using a file reader to get and compare the data entered against the existing ones
+            Dictionary<string,string> data = _fileIO.ReadPasswordFile();
+            foreach (var kvp in data)
+            {
+                if (kvp.Key == email && kvp.Value == password)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void StorePassword(string email, string password)
+        {
+            //formats password and email and sends it to the file writer
+            string format = email + "|" + password;
+            _fileIO.WritePasswordFile(format);
         }
     }
 }
