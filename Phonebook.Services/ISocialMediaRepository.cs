@@ -8,6 +8,6 @@ namespace Phonebook.Services
         Task<bool> AddSocialMediaHandle(string userid, string type, string handle);
         Dictionary<string, string> GetSocialMediaHandle(string userid);
         Task<bool> UpdateSocialMediaHandle(string userid, string newhandle, string mediatype);
-        Task<bool> DeleteSocialMediaHandle(string userid, string newhandle);
+        Task<bool> DeleteSocialMediaHandle(string userid, string mediatype);
     }
 }

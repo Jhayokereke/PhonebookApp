@@ -12,7 +12,6 @@ namespace Phonebook.UI
 {
     public partial class OtherRegistration : Form
     {
-        private readonly IUserRepository _userRepo;
         private readonly IPhonenumberRepository _phoneRepo;
         private readonly ISocialMediaRepository _socialRepo;
         private IUser _user;
@@ -21,7 +20,6 @@ namespace Phonebook.UI
         {
             InitializeComponent();
             _user = user;
-            _userRepo = new UserRepository();
             _phoneRepo = new PhonenumberRepository();
             _socialRepo = new SocialMediaRepository();
             _user.SocialMediaHandles = new Dictionary<string, string>();
@@ -58,7 +56,7 @@ namespace Phonebook.UI
                     throw new DuplicateNameException("Oops! Phonenumber already exists");
                 }
                 _user.PhoneNumber.Add(phonenumber_txtbox.Text);
-                bool addedSuccesfully = await _phoneRepo.AddPhonenumber(_user.UserID, phonenumber_txtbox.Text);
+                bool addedSuccesfully = await _phoneRepo.AddPhonenumber(_user.UserID, phonenumber_txtbox.Text, false);
                 if (!addedSuccesfully)
                 {
                     throw new DataException("Oops! Please try again.");

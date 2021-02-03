@@ -35,7 +35,7 @@ namespace Phonebook.DataAccessLayer
 
         public void WritePasswordFile(string str)
         {
-            using (StreamWriter sw = new StreamWriter(_path))
+            using (StreamWriter sw = new FileInfo(_path).AppendText())
             {
                 sw.WriteLine(str);
             }

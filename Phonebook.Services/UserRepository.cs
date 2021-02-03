@@ -63,7 +63,7 @@ namespace Phonebook.Services
 
         public async Task<bool> AddUser(IUser user)
         {
-            string cmdtxt = @"insert into tblUser (UserID, FirstName, LastName, Email, MainPhoneNumber, UserType) values ('" + user.UserID + "', '" + user.FirstName + "', '" + user.LastName + "', '" + user.Email + "', '" + user.MainPhoneNumber + "', '" + user.UserType + "')";
+            string cmdtxt = @"insert into tblUser (UserID, FirstName, LastName, Email, UserType) values ('" + user.UserID + "', '" + user.FirstName + "', '" + user.LastName + "', '" + user.Email + "', '" + user.UserType + "')";
             return await _dataReader.WriteToDatabase(cmdtxt);
         }
 
@@ -79,9 +79,9 @@ namespace Phonebook.Services
                 userToReturn.FirstName = (string)add["FirstName"];
                 userToReturn.LastName = (string)add["LastName"];
                 userToReturn.Email = (string)add["Email"];
-                userToReturn.MainPhoneNumber = (string)add["MainPhoneNumber"];
                 userToReturn.UserType = (string)add["UserType"];
                 userToReturn.Address = _addressRepo.GetAddress(userid);
+                userToReturn.MainPhoneNumber = _phonenumberRepo.GetMainPhonenumber(userid);
                 userToReturn.PhoneNumber = _phonenumberRepo.GetPhonenumbers(userid);
                 userToReturn.SocialMediaHandles = _socialMediaRepo.GetSocialMediaHandle(userid);
             }
@@ -101,10 +101,10 @@ namespace Phonebook.Services
                 userToReturn.FirstName = (string)add["FirstName"];
                 userToReturn.LastName = (string)add["LastName"];
                 userToReturn.Email = (string)add["Email"];
-                userToReturn.MainPhoneNumber = (string)add["MainPhoneNumber"];
                 userToReturn.UserType = (string)add["UserType"];
                 userToReturn.Address = _addressRepo.GetAddress(userToReturn.UserID);
                 userToReturn.PhoneNumber = _phonenumberRepo.GetPhonenumbers(userToReturn.UserID);
+                userToReturn.MainPhoneNumber = _phonenumberRepo.GetMainPhonenumber(userToReturn.UserID);
                 userToReturn.SocialMediaHandles = _socialMediaRepo.GetSocialMediaHandle(userToReturn.UserID);
             }
 
@@ -126,11 +126,11 @@ namespace Phonebook.Services
                     FirstName = (string)add["FirstName"],
                     LastName = (string)add["LastName"],
                     Email = (string)add["Email"],
-                    MainPhoneNumber = (string)add["MainPhoneNumber"],
                     UserType = (string)add["UserType"]
                 };
                 user.Address = _addressRepo.GetAddress(user.UserID);
                 user.PhoneNumber = _phonenumberRepo.GetPhonenumbers(user.UserID);
+                user.MainPhoneNumber = _phonenumberRepo.GetMainPhonenumber(user.UserID);
                 user.SocialMediaHandles = _socialMediaRepo.GetSocialMediaHandle(user.UserID);
 
                 Users.Add(user);

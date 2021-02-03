@@ -7,16 +7,16 @@ namespace Phonebook.DataAccessLayer
 {
     public class DataReader
     {
-        private readonly SqlConnection Connection;
+        private SqlConnection Connection;
 
-        private readonly SqlCommand Command;
+        private SqlCommand Command;
 
         private readonly string _connStr = @"Data Source = JHAY\MSSQLSERVER01;Initial Catalog = Phonebook; Integrated Security = True";
 
         public DataReader()
         {
-            Connection = new SqlConnection(_connStr);
             Command = new SqlCommand();
+            Connection = new SqlConnection(_connStr);
         }
 
         public async Task<bool> WriteToDatabase(string cmdtxt)

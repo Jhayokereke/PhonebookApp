@@ -30,7 +30,7 @@ namespace Phonebook.UI
         private void InitializeComponent()
         {
             this.phonenumber_label = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.mediacombo = new System.Windows.Forms.ComboBox();
             this.back_link = new System.Windows.Forms.LinkLabel();
             this.delete_btn = new System.Windows.Forms.Button();
             this.update_btn = new System.Windows.Forms.Button();
@@ -51,11 +51,11 @@ namespace Phonebook.UI
             this.phonenumber_label.TabIndex = 11;
             this.phonenumber_label.Text = "Media Type";
             // 
-            // comboBox1
+            // mediacombo
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.mediacombo.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mediacombo.FormattingEnabled = true;
+            this.mediacombo.Items.AddRange(new object[] {
             "Facebook",
             "Twitter",
             "WhatsApp",
@@ -64,10 +64,10 @@ namespace Phonebook.UI
             "TikTok",
             "SnapChat",
             "Other"});
-            this.comboBox1.Location = new System.Drawing.Point(29, 64);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(410, 28);
-            this.comboBox1.TabIndex = 21;
+            this.mediacombo.Location = new System.Drawing.Point(29, 64);
+            this.mediacombo.Name = "mediacombo";
+            this.mediacombo.Size = new System.Drawing.Size(410, 28);
+            this.mediacombo.TabIndex = 21;
             // 
             // back_link
             // 
@@ -81,6 +81,7 @@ namespace Phonebook.UI
             this.back_link.TabStop = true;
             this.back_link.Text = "Go back";
             this.back_link.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.back_link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.back_link_LinkClicked);
             // 
             // delete_btn
             // 
@@ -94,6 +95,7 @@ namespace Phonebook.UI
             this.delete_btn.TabIndex = 26;
             this.delete_btn.Text = "Delete";
             this.delete_btn.UseVisualStyleBackColor = false;
+            this.delete_btn.Click += new System.EventHandler(this.delete_btn_Click);
             // 
             // update_btn
             // 
@@ -107,6 +109,7 @@ namespace Phonebook.UI
             this.update_btn.TabIndex = 25;
             this.update_btn.Text = "Update";
             this.update_btn.UseVisualStyleBackColor = false;
+            this.update_btn.Click += new System.EventHandler(this.update_btn_Click);
             // 
             // add_btn
             // 
@@ -120,6 +123,7 @@ namespace Phonebook.UI
             this.add_btn.TabIndex = 24;
             this.add_btn.Text = "Add";
             this.add_btn.UseVisualStyleBackColor = false;
+            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
             // handle_txtbox
             // 
@@ -165,7 +169,7 @@ namespace Phonebook.UI
             this.Controls.Add(this.add_btn);
             this.Controls.Add(this.handle_txtbox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.mediacombo);
             this.Controls.Add(this.phonenumber_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UpdateMedia";
@@ -177,7 +181,7 @@ namespace Phonebook.UI
 
         #endregion
         private System.Windows.Forms.Label phonenumber_label;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox mediacombo;
         private System.Windows.Forms.LinkLabel back_link;
         private System.Windows.Forms.Button delete_btn;
         private System.Windows.Forms.Button update_btn;
