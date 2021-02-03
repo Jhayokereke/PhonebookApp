@@ -49,7 +49,7 @@ namespace Phonebook.UI
             this.address.AutoSize = true;
             this.address.Font = new System.Drawing.Font("High Tower Text", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.address.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(48)))), ((int)(((byte)(85)))));
-            this.address.Location = new System.Drawing.Point(155, 9);
+            this.address.Location = new System.Drawing.Point(211, 9);
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(119, 34);
             this.address.TabIndex = 34;
@@ -170,6 +170,7 @@ namespace Phonebook.UI
             this.update_btn.TabIndex = 60;
             this.update_btn.Text = "Update";
             this.update_btn.UseVisualStyleBackColor = false;
+            this.update_btn.Click += new System.EventHandler(this.update_btn_Click);
             // 
             // add_btn
             // 
@@ -183,6 +184,7 @@ namespace Phonebook.UI
             this.add_btn.TabIndex = 59;
             this.add_btn.Text = "Add";
             this.add_btn.UseVisualStyleBackColor = false;
+            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
             // UpdateAddress
             // 

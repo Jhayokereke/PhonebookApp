@@ -25,11 +25,14 @@ namespace Phonebook.UI
             _mediaRepo = new SocialMediaRepository();
             _phoneRepo = new PhonenumberRepository();
             _userRepo = new UserRepository();
+            update_addr_btn.Visible = false;
+            update_media_btn.Visible = false;
+            update_phone_btn.Visible = false;
         }
 
         private void view_details_btn_Click(object sender, EventArgs e)
         {
-            output_label.Text = OutputSchema(_user);
+            display_box.Text = OutputSchema(_user);
         }
 
         public string OutputSchema(IUser user)
@@ -49,8 +52,42 @@ namespace Phonebook.UI
             {
                 output += OutputSchema(user) + "\n\n"; 
             }
-            output_label.Text = output;
+            display_box.Text = output;
             
+        }
+
+        private void Edit_btn_Click(object sender, EventArgs e)
+        {
+            update_addr_btn.Visible = true;
+            update_media_btn.Visible = true;
+            update_phone_btn.Visible = true;
+        }
+
+        private void update_addr_btn_Click(object sender, EventArgs e)
+        {
+            UpdateAddress ua = new UpdateAddress(_user);
+            Hide();
+            ua.ShowDialog();
+        }
+
+        private void update_phone_btn_Click(object sender, EventArgs e)
+        {
+            UpdatePhone up = new UpdatePhone(_user);
+            Hide();
+            up.ShowDialog();
+            Show();
+        }
+
+        private void update_media_btn_Click(object sender, EventArgs e)
+        {
+            UpdateMedia um = new UpdateMedia(_user);
+            Hide();
+            um.ShowDialog();
+        }
+
+        private void display_box_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

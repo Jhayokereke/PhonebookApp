@@ -48,11 +48,11 @@ namespace Phonebook.Services
             string cmdtxt = @"select * from tblPhonenumber";
 
             DataTable tbl = _dataReader.ReadFromDatabase(cmdtxt);
-            foreach (DataRow add in tbl.Select($"UserID = '{userid}', MainPhonenumber ='0'"))
+            foreach (DataRow add in tbl.Select(@"UserID = '"+userid+"' AND MainPhonenumber ='0'"))
             {
                 return (string)add["Phonenumber"];
             }
-            return "";
+            return null;
         }
 
         public async Task<bool> UpdatePhonenumber(string userid, string phonenum, string newPhonenum, bool main)

@@ -13,24 +13,18 @@ namespace Phonebook.DataAccessLayer
 
         private readonly string _connStr = @"Data Source = JHAY\MSSQLSERVER01;Initial Catalog = Phonebook; Integrated Security = True";
 
-        public DataReader()
-        {
-            Command = new SqlCommand();
-            Connection = new SqlConnection(_connStr);
-        }
 
         public async Task<bool> WriteToDatabase(string cmdtxt)
         {
             try
             {
-                using (Connection)
+                using (Connection = new SqlConnection(_connStr))
                 {
                     if (Connection == null)
                     {
                         throw new Exception("Failed to connect!");
                     }
-                    Command.CommandText = cmdtxt;
-                    Command.Connection = Connection;
+                    Command = new SqlCommand(cmdtxt, Connection);
                     Connection.Open(); ///opens up the connection to perform the insertion
                     try
                     {
@@ -60,15 +54,13 @@ namespace Phonebook.DataAccessLayer
             SqlDataAdapter dataAdapter = new SqlDataAdapter();
             try
             {
-                using (Connection)
+                using (Connection = new SqlConnection(_connStr))
                 {
                     if (Connection == null)
                     {
                         throw new Exception("Failed to connect!");
                     }
-                    Command.CommandText = cmdtxt;
-                    Command.Connection = Connection;
-                    Command.CommandType = CommandType.Text;
+                    Command = new SqlCommand(cmdtxt, Connection);
                     Connection.Open(); ///opens up the connection to perform the insertion
                     try
                     {
