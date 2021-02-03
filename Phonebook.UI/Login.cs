@@ -79,6 +79,9 @@ namespace Phonebook.UI
             Hide();
             ua.ShowDialog();
             Show();
+            update_addr_btn.Visible = false;
+            update_media_btn.Visible = false;
+            update_phone_btn.Visible = false;
         }
 
         private void update_phone_btn_Click(object sender, EventArgs e)
@@ -87,6 +90,9 @@ namespace Phonebook.UI
             Hide();
             up.ShowDialog();
             Show();
+            update_addr_btn.Visible = false;
+            update_media_btn.Visible = false;
+            update_phone_btn.Visible = false;
         }
 
         private void update_media_btn_Click(object sender, EventArgs e)
@@ -95,6 +101,9 @@ namespace Phonebook.UI
             Hide();
             um.ShowDialog();
             Show();
+            update_addr_btn.Visible = false;
+            update_media_btn.Visible = false;
+            update_phone_btn.Visible = false;
         }
 
     }

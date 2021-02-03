@@ -1,5 +1,6 @@
 ﻿using Phonebook.Models;
 using Phonebook.Services;
+using Phonebook.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +31,8 @@ namespace Phonebook.UI
             {
                 try
                 {
+                    if (!Validation.ValidatePhonenumber(phonenumber_txtbox.Text) || string.IsNullOrWhiteSpace(phonenumber_txtbox.Text))
+                    { throw new FormatException("Invalid Phonenumber!"); }
                     if (_currentuser.PhoneNumber.Contains(phonenumber_txtbox.Text))
                     {
                         throw new DuplicateNameException("Oops! Phonenumber already exists");
@@ -51,6 +54,10 @@ namespace Phonebook.UI
             {
                 try
                 {
+                    if (!Validation.ValidatePhonenumber(phonenumber_txtbox.Text) || string.IsNullOrWhiteSpace(phonenumber_txtbox.Text))
+                    { throw new FormatException("Invalid Phonenumber!"); }
+                    if (!Validation.ValidatePhonenumber(newnum_txtbox.Text) || string.IsNullOrWhiteSpace(newnum_txtbox.Text))
+                    { throw new FormatException("Invalid Phonenumber!"); }
                     string oldMain = _phoneRepo.GetMainPhonenumber(_currentuser.UserID);
                     bool addedSuccesfully = _currentuser.PhoneNumber.Contains(newnum_txtbox.Text)
                         ? await _phoneRepo.UpdatePhonenumber(_currentuser.UserID, newnum_txtbox.Text, newnum_txtbox.Text, true)
