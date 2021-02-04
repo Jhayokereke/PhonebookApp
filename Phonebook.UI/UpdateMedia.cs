@@ -27,9 +27,17 @@ namespace Phonebook.UI
         {
             try
             {
+                if (handle_txtbox.Text == null)
+                {
+                    throw new NullReferenceException("Field cannot be empty!");
+                }
+                if (mediacombo.SelectedItem == null)
+                {
+                    throw new NullReferenceException("Please select a valid media type");
+                }
                 if (_currentuser.SocialMediaHandles.ContainsKey(mediacombo.SelectedItem.ToString()))
                 {
-                    throw new DuplicateNameException("Oops! Handle already exists");
+                    throw new DuplicateNameException("Oops! Handle already exists for this media type");
                 }
                 _currentuser.SocialMediaHandles.Add(mediacombo.SelectedItem.ToString(), handle_txtbox.Text);
                 bool addedSuccesfully = await _socialRepo.AddSocialMediaHandle(_currentuser.UserID, mediacombo.SelectedItem.ToString(), handle_txtbox.Text);
@@ -39,7 +47,7 @@ namespace Phonebook.UI
                 }
                 MessageBox.Show("Success!");
             }
-            catch (DuplicateNameException ev)
+            catch (Exception ev)
             {
                 MessageBox.Show(ev.Message);
             }

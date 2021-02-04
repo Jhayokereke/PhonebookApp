@@ -27,7 +27,7 @@ namespace Phonebook.UI
 
         private async void add_btn_Click(object sender, EventArgs e)
         {
-            if (delete_btn.Visible && update_btn.Visible && phonenumber_txtbox.Visible && phonenumber_label.Visible)
+            if (delete_btn.Visible && update_btn.Visible)
             {
                 try
                 {
@@ -44,6 +44,8 @@ namespace Phonebook.UI
                         throw new DataException("Oops! Please try again.");
                     }
                     MessageBox.Show("Success!");
+                    phonenumber_txtbox.Text = null;
+                    newnum_txtbox.Text = null;
                 }
                 catch (Exception ev)
                 {
@@ -54,11 +56,11 @@ namespace Phonebook.UI
             {
                 try
                 {
-                    if (!Validation.ValidatePhonenumber(phonenumber_txtbox.Text) || string.IsNullOrWhiteSpace(phonenumber_txtbox.Text))
-                    { throw new FormatException("Invalid Phonenumber!"); }
                     if (!Validation.ValidatePhonenumber(newnum_txtbox.Text) || string.IsNullOrWhiteSpace(newnum_txtbox.Text))
                     { throw new FormatException("Invalid Phonenumber!"); }
                     string oldMain = _phoneRepo.GetMainPhonenumber(_currentuser.UserID);
+                    if (oldMain == newnum_txtbox.Text)
+                    { throw new DuplicateNameException("Already your main number!"); }
                     bool addedSuccesfully = _currentuser.PhoneNumber.Contains(newnum_txtbox.Text)
                         ? await _phoneRepo.UpdatePhonenumber(_currentuser.UserID, newnum_txtbox.Text, newnum_txtbox.Text, true)
                         : await _phoneRepo.AddPhonenumber(_currentuser.UserID, newnum_txtbox.Text, true);
@@ -76,6 +78,7 @@ namespace Phonebook.UI
                     }
                     bool success = await _phoneRepo.UpdatePhonenumber(_currentuser.UserID, oldMain, oldMain, false);
                     _currentuser.PhoneNumber.Add(newnum_txtbox.Text);
+                    newnum_txtbox.Text = null;
                     MessageBox.Show("Success!");
 
                     delete_btn.Visible = true;
@@ -107,6 +110,16 @@ namespace Phonebook.UI
             {
                 try
                 {
+                    if (!Validation.ValidatePhonenumber(phonenumber_txtbox.Text) || string.IsNullOrWhiteSpace(phonenumber_txtbox.Text))
+                    { throw new FormatException("Invalid Phonenumber!"); }
+                    if (!Validation.ValidatePhonenumber(newnum_txtbox.Text) || string.IsNullOrWhiteSpace(newnum_txtbox.Text))
+                    { throw new FormatException("Invalid Phonenumber!"); }
+
+                    if (!_currentuser.PhoneNumber.Contains(phonenumber_txtbox.Text))
+                    { throw new NullReferenceException("Oops! Number does not exist."); }
+                    if (_currentuser.PhoneNumber.Contains(newnum_txtbox.Text))
+                    { throw new DuplicateNameException("Oops! Number already exists. Want to delete?"); }
+
                     bool addedSuccesfully = await _phoneRepo.UpdatePhonenumber(_currentuser.UserID, phonenumber_txtbox.Text, newnum_txtbox.Text, false);
                     if (!addedSuccesfully)
                     {
@@ -114,10 +127,13 @@ namespace Phonebook.UI
                     }
                     _currentuser.PhoneNumber.Add(phonenumber_txtbox.Text);
                     MessageBox.Show("Success!");
+
+                    phonenumber_txtbox.Text = null;
+                    newnum_txtbox.Text = null;
                     newnum_txtbox.Visible = false;
                     new_num.Visible = false;
                 }
-                catch (DuplicateNameException ev)
+                catch (Exception ev)
                 {
                     newnum_txtbox.Visible = false;
                     new_num.Visible = false;
@@ -132,19 +148,23 @@ namespace Phonebook.UI
         {
             try
             {
+                if (!Validation.ValidatePhonenumber(phonenumber_txtbox.Text) || string.IsNullOrWhiteSpace(phonenumber_txtbox.Text))
+                { throw new FormatException("Invalid Phonenumber!"); }
+                if (!_currentuser.PhoneNumber.Contains(phonenumber_txtbox.Text))
+                { throw new NullReferenceException("Oops! Number does not exist."); }
                 if (phonenumber_txtbox.Text == _currentuser.MainPhoneNumber)
-                {
-                    throw new NotSupportedException("Sorry, you cannot delete your main number!");
-                }
+                { throw new NotSupportedException("Sorry, you cannot delete your main number!"); }
+
                 bool addedSuccesfully = await _phoneRepo.DeletePhonenumber(_currentuser.UserID, phonenumber_txtbox.Text);
+                
                 if (!addedSuccesfully)
-                {
-                    throw new DataException("Oops! Please try again.");
-                }
+                { throw new DataException("Oops! Please try again."); }
+
                 _currentuser.PhoneNumber.Remove(phonenumber_txtbox.Text);
+                phonenumber_txtbox.Text = null;
                 MessageBox.Show("Success!");
             }
-            catch (DuplicateNameException ev)
+            catch (Exception ev)
             {
                 MessageBox.Show(ev.Message);
             }
@@ -163,6 +183,8 @@ namespace Phonebook.UI
             newnum_txtbox.Visible = false;
             new_num.Visible = false;
             new_main_link.Visible = true;
+            phonenumber_txtbox.Text = null;
+            newnum_txtbox.Text = null;
         }
 
         private void new_main_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

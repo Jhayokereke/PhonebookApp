@@ -214,6 +214,8 @@ namespace Phonebook.UI
                     user = _userRepo.GetUserByEmail(email);
                     if (user != null)
                     {
+                        email_textbox.Clear();
+                        password_textBox.Clear();
                         Login l = new Login(user);
                         Hide();
                         l.ShowDialog();
@@ -227,33 +229,6 @@ namespace Phonebook.UI
             {
                 MessageBox.Show(ex.Message);
             }
-
-            //Tuple<string, byte[], byte[]> tuple;
-            //try
-            //{
-            //    if (Validation.ValidateEmail(email))
-            //    {
-            //        tuple = _userRepo.GetAuth(email, password);
-            //        if (PasswordEncryptor.ComparePassword(tuple.Item2, tuple.Item3, password))
-            //        {
-            //            user = _userRepo.GetUserByEmail(email);
-            //            Login a = new Login(user);
-            //            a.Show();
-            //        }
-            //        else
-            //        {
-            //            throw new FormatException("Invalid email or password!");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        throw new FormatException("Invalid email or password!");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
         }
     }
 }

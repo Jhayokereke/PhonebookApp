@@ -26,10 +26,13 @@ namespace Phonebook.UI
             try
             {
                 if (string.IsNullOrWhiteSpace(street_txtbox.Text) || string.IsNullOrWhiteSpace(city_txtbox.Text)
-                    || string.IsNullOrWhiteSpace(state_txtbox.Text) || string.IsNullOrWhiteSpace(zipcode_txtbox.Text)
-                    || string.IsNullOrWhiteSpace(countrybox.SelectedItem.ToString()))
+                    || string.IsNullOrWhiteSpace(state_txtbox.Text) || string.IsNullOrWhiteSpace(zipcode_txtbox.Text))
                 {
-                    throw new ArgumentNullException("Incomplete address!");
+                    throw new NullReferenceException("Incomplete address!");
+                }
+                if (countrybox.SelectedItem==null)
+                {
+                    throw new NullReferenceException("Please select a valid Country!");
                 }
                 if (!int.TryParse(zipcode_txtbox.Text, out _))
                 {
