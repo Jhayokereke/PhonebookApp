@@ -6,3 +6,4 @@ C:\Users\hp\Git Repository\Week 5\Phonebook.Utilities\obj\Debug\netcoreapp3.1\Ph
 C:\Users\hp\Git Repository\Week 5\Phonebook.Utilities\obj\Debug\netcoreapp3.1\Phonebook.Utilities.csproj.CoreCompileInputs.cache
 C:\Users\hp\Git Repository\Week 5\Phonebook.Utilities\obj\Debug\netcoreapp3.1\Phonebook.Utilities.dll
 C:\Users\hp\Git Repository\Week 5\Phonebook.Utilities\obj\Debug\netcoreapp3.1\Phonebook.Utilities.pdb
+C:\Users\hp\Git Repository\Week 5\Phonebook.Utilities\obj\Debug\netcoreapp3.1\Phonebook.Utilities.csprojAssemblyReference.cache

@@ -44,6 +44,8 @@ namespace Phonebook.UI
             this.confirm_password_label = new System.Windows.Forms.Label();
             this.signin_link = new System.Windows.Forms.LinkLabel();
             this.signin_label = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.type_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // firstName_txtbox
@@ -101,20 +103,6 @@ namespace Phonebook.UI
             this.password_txtbox.Size = new System.Drawing.Size(426, 28);
             this.password_txtbox.TabIndex = 4;
             // 
-            // signup_button
-            // 
-            this.signup_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(48)))), ((int)(((byte)(85)))));
-            this.signup_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.signup_button.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.signup_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.signup_button.Location = new System.Drawing.Point(326, 505);
-            this.signup_button.Name = "signup_button";
-            this.signup_button.Size = new System.Drawing.Size(136, 40);
-            this.signup_button.TabIndex = 6;
-            this.signup_button.Text = "Sign up";
-            this.signup_button.UseVisualStyleBackColor = false;
-            this.signup_button.Click += new System.EventHandler(this.signup_button_ClickAsync);
-            // 
             // firstname_label
             // 
             this.firstname_label.AutoSize = true;
@@ -123,7 +111,7 @@ namespace Phonebook.UI
             this.firstname_label.Location = new System.Drawing.Point(37, 57);
             this.firstname_label.Name = "firstname_label";
             this.firstname_label.Size = new System.Drawing.Size(114, 27);
-            this.firstname_label.TabIndex = 7;
+            this.firstname_label.TabIndex = 6;
             this.firstname_label.Text = "Firstname";
             // 
             // Lastname_label
@@ -134,7 +122,7 @@ namespace Phonebook.UI
             this.Lastname_label.Location = new System.Drawing.Point(37, 136);
             this.Lastname_label.Name = "Lastname_label";
             this.Lastname_label.Size = new System.Drawing.Size(109, 27);
-            this.Lastname_label.TabIndex = 8;
+            this.Lastname_label.TabIndex = 7;
             this.Lastname_label.Text = "Lastname";
             // 
             // email_label
@@ -145,7 +133,7 @@ namespace Phonebook.UI
             this.email_label.Location = new System.Drawing.Point(37, 214);
             this.email_label.Name = "email_label";
             this.email_label.Size = new System.Drawing.Size(71, 27);
-            this.email_label.TabIndex = 9;
+            this.email_label.TabIndex = 8;
             this.email_label.Text = "Email";
             // 
             // phonenumber_label
@@ -156,7 +144,7 @@ namespace Phonebook.UI
             this.phonenumber_label.Location = new System.Drawing.Point(37, 299);
             this.phonenumber_label.Name = "phonenumber_label";
             this.phonenumber_label.Size = new System.Drawing.Size(155, 27);
-            this.phonenumber_label.TabIndex = 10;
+            this.phonenumber_label.TabIndex = 9;
             this.phonenumber_label.Text = "Phonenumber";
             // 
             // password_label
@@ -167,7 +155,7 @@ namespace Phonebook.UI
             this.password_label.Location = new System.Drawing.Point(37, 386);
             this.password_label.Name = "password_label";
             this.password_label.Size = new System.Drawing.Size(110, 27);
-            this.password_label.TabIndex = 11;
+            this.password_label.TabIndex = 10;
             this.password_label.Text = "Password";
             // 
             // confirm_password_label
@@ -178,17 +166,31 @@ namespace Phonebook.UI
             this.confirm_password_label.Location = new System.Drawing.Point(37, 473);
             this.confirm_password_label.Name = "confirm_password_label";
             this.confirm_password_label.Size = new System.Drawing.Size(206, 27);
-            this.confirm_password_label.TabIndex = 12;
+            this.confirm_password_label.TabIndex = 11;
             this.confirm_password_label.Text = "Confirm Password";
+            // 
+            // signup_button
+            // 
+            this.signup_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(48)))), ((int)(((byte)(85)))));
+            this.signup_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.signup_button.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.signup_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.signup_button.Location = new System.Drawing.Point(326, 525);
+            this.signup_button.Name = "signup_button";
+            this.signup_button.Size = new System.Drawing.Size(136, 40);
+            this.signup_button.TabIndex = 12;
+            this.signup_button.Text = "Sign up";
+            this.signup_button.UseVisualStyleBackColor = false;
+            this.signup_button.Click += new System.EventHandler(this.signup_button_ClickAsync);
             // 
             // signin_link
             // 
             this.signin_link.AutoSize = true;
             this.signin_link.Font = new System.Drawing.Font("High Tower Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.signin_link.Location = new System.Drawing.Point(255, 566);
+            this.signin_link.Location = new System.Drawing.Point(255, 586);
             this.signin_link.Name = "signin_link";
             this.signin_link.Size = new System.Drawing.Size(86, 27);
-            this.signin_link.TabIndex = 13;
+            this.signin_link.TabIndex = 14;
             this.signin_link.TabStop = true;
             this.signin_link.Text = "Sign in";
             this.signin_link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.signin_link_LinkClicked);
@@ -198,18 +200,42 @@ namespace Phonebook.UI
             this.signin_label.AutoSize = true;
             this.signin_label.Font = new System.Drawing.Font("High Tower Text", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.signin_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(48)))), ((int)(((byte)(85)))));
-            this.signin_label.Location = new System.Drawing.Point(39, 571);
+            this.signin_label.Location = new System.Drawing.Point(39, 591);
             this.signin_label.Name = "signin_label";
             this.signin_label.Size = new System.Drawing.Size(210, 20);
-            this.signin_label.TabIndex = 14;
+            this.signin_label.TabIndex = 15;
             this.signin_label.Text = "Already have an account?";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Admin",
+            "Regular"});
+            this.comboBox1.Location = new System.Drawing.Point(37, 515);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(151, 28);
+            this.comboBox1.TabIndex = 12;
+            // 
+            // type_label
+            // 
+            this.type_label.AutoSize = true;
+            this.type_label.Font = new System.Drawing.Font("High Tower Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.type_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(48)))), ((int)(((byte)(85)))));
+            this.type_label.Location = new System.Drawing.Point(37, 546);
+            this.type_label.Name = "type_label";
+            this.type_label.Size = new System.Drawing.Size(116, 27);
+            this.type_label.TabIndex = 16;
+            this.type_label.Text = "User Role";
             // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(157)))), ((int)(((byte)(151)))));
-            this.ClientSize = new System.Drawing.Size(526, 611);
+            this.ClientSize = new System.Drawing.Size(526, 628);
+            this.Controls.Add(this.type_label);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.signin_label);
             this.Controls.Add(this.signin_link);
             this.Controls.Add(this.confirm_password_label);
@@ -251,5 +277,7 @@ namespace Phonebook.UI
         private System.Windows.Forms.Label confirm_password_label;
         private System.Windows.Forms.LinkLabel signin_link;
         private System.Windows.Forms.Label signin_label;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label type_label;
     }
 }

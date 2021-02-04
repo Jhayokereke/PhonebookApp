@@ -45,7 +45,7 @@ namespace Phonebook.UI
                     }
                     MessageBox.Show("Success!");
                 }
-                catch (DuplicateNameException ev)
+                catch (Exception ev)
                 {
                     MessageBox.Show(ev.Message);
                 }

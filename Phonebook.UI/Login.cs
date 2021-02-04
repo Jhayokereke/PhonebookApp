@@ -1,5 +1,6 @@
 ﻿using Phonebook.Models;
 using Phonebook.Services;
+using Phonebook.Utilities.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace Phonebook.UI
         private readonly IPhonenumberRepository _phoneRepo;
         private readonly ISocialMediaRepository _mediaRepo;
         private readonly User _user;
+        private string data = "";
         public Login(User user)
         {
             InitializeComponent();
@@ -46,14 +48,24 @@ namespace Phonebook.UI
 
         private void view_all_btn_Click(object sender, EventArgs e)
         {
-            List<User> AllUsers = _userRepo.GetAllUsers();
-            string output = "";
-            foreach (var user in AllUsers)
+            try
             {
-                output += OutputSchema(user) + "\n\n"; 
+                if (_user.UserType == "Regular")
+                {
+                    throw new AccessViolationException("Sorry, You are not an admin.");
+                }
+                List<User> AllUsers = _userRepo.GetAllUsers();
+                string output = "";
+                foreach (var user in AllUsers)
+                {
+                    output += OutputSchema(user) + "\n\n";
+                }
+                display_box.Text = output;
             }
-            display_box.Text = output;
-            
+            catch (AccessViolationException av)
+            {
+                MessageBox.Show(av.Message);
+            }
         }
 
         private void display_box_TextChanged(object sender, EventArgs e)
@@ -106,5 +118,25 @@ namespace Phonebook.UI
             update_phone_btn.Visible = false;
         }
 
+        private void save_btn_Click(object sender, EventArgs e)
+        {
+            data += display_box.Text + "\n\n";
+        }
+
+        private void show_all_btn_Click(object sender, EventArgs e)
+        {
+            display_box.Text = data;
+        }
+
+        private void clear_all_btn_Click(object sender, EventArgs e)
+        {
+            data = "";
+        }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Goodbye!");
+            Close();
+        }
     }
 }

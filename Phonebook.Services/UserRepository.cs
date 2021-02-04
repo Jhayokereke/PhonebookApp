@@ -30,7 +30,7 @@ namespace Phonebook.Services
             _fileIO = new FileIO();
         }
 
-        public User CreateUser(string firstName, string lastName, string email, string phonenumber, string password, List<string> phonenumbers)
+        public User CreateUser(string firstName, string lastName, string email, string phonenumber, string password, List<string> phonenumbers, string type)
         {
             string userId = Guid.NewGuid().ToString().Substring(9, 12);
             List<byte[]> encryptedPassword = PasswordEncryptor.EncryptPassword(password);
@@ -44,7 +44,7 @@ namespace Phonebook.Services
                 PasswordHash = encryptedPassword[0],
                 PasswordSalt = encryptedPassword[1],
                 PhoneNumber = phonenumbers,
-                UserType = UserType.Regular.ToString()
+                UserType = type
             };
             return newUser;
         }

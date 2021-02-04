@@ -34,6 +34,13 @@ namespace Phonebook.UI
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(firstName_txtbox.Text)|| string.IsNullOrWhiteSpace(lastname_txtbox.Text)
+                    || string.IsNullOrWhiteSpace(email_txtbox.Text)|| string.IsNullOrWhiteSpace(phonenumber_txtbox.Text)
+                    || string.IsNullOrWhiteSpace(password_txtbox.Text)|| string.IsNullOrWhiteSpace(confirm_password_txtbox.Text)
+                    || string.IsNullOrWhiteSpace(comboBox1.SelectedItem.ToString()))
+                {
+                    throw new NullReferenceException("Field cannot be empty!");
+                }
                 if (!Validation.ValidateName(firstName_txtbox.Text))
                 {
                     throw new FormatException("Invalid firstname!");
@@ -58,10 +65,10 @@ namespace Phonebook.UI
                 {
                     string firstName = firstName_txtbox.Text,lastName = lastname_txtbox.Text,
                         email = email_txtbox.Text, mainPhoneNumber = phonenumber_txtbox.Text,
-                        password = password_txtbox.Text;
+                        password = password_txtbox.Text, type = comboBox1.SelectedItem.ToString();
                     List<string> phoneNumber = new List<string>() { phonenumber_txtbox.Text };
                     _userRepo.StorePassword(email, password);
-                    User newUser = _userRepo.CreateUser(firstName, lastName, email, mainPhoneNumber, password, phoneNumber);
+                    User newUser = _userRepo.CreateUser(firstName, lastName, email, mainPhoneNumber, password, phoneNumber, type);
                     bool addedSuccesfully = await _userRepo.AddUser(newUser);
                     bool success = await _phoneRepo.AddPhonenumber(newUser.UserID, mainPhoneNumber, true);
                     if (!addedSuccesfully||!success)
@@ -78,8 +85,13 @@ namespace Phonebook.UI
             }
             catch (Exception es)
             {
-                MessageBox.Show(this, es.Message);
+                MessageBox.Show(es.Message);
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

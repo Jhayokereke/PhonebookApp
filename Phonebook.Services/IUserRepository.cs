@@ -8,7 +8,7 @@ namespace Phonebook.Services
     public interface IUserRepository
     {
         Task<bool> AddUser(User user);
-        User CreateUser(string firstName, string lastName, string email, string phonenumber, string password, List<string> phonenumbers);
+        User CreateUser(string firstName, string lastName, string email, string phonenumber, string password, List<string> phonenumbers, string type);
         List<User> GetAllUsers();
         User GetUser(string userid);
         User GetUserByEmail(string email);
