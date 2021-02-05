@@ -42,6 +42,7 @@ namespace Phonebook.UI
             this.show_all_btn = new System.Windows.Forms.Button();
             this.clear_all_btn = new System.Windows.Forms.Button();
             this.logout_btn = new System.Windows.Forms.Button();
+            this.delete_user_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // view_all_btn
@@ -50,9 +51,9 @@ namespace Phonebook.UI
             this.view_all_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.view_all_btn.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.view_all_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.view_all_btn.Location = new System.Drawing.Point(25, 97);
+            this.view_all_btn.Location = new System.Drawing.Point(25, 95);
             this.view_all_btn.Name = "view_all_btn";
-            this.view_all_btn.Size = new System.Drawing.Size(355, 50);
+            this.view_all_btn.Size = new System.Drawing.Size(170, 50);
             this.view_all_btn.TabIndex = 29;
             this.view_all_btn.Text = "View all details";
             this.view_all_btn.UseVisualStyleBackColor = false;
@@ -214,12 +215,27 @@ namespace Phonebook.UI
             this.logout_btn.UseVisualStyleBackColor = false;
             this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
             // 
+            // delete_user_btn
+            // 
+            this.delete_user_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(48)))), ((int)(((byte)(85)))));
+            this.delete_user_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.delete_user_btn.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.delete_user_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.delete_user_btn.Location = new System.Drawing.Point(210, 95);
+            this.delete_user_btn.Name = "delete_user_btn";
+            this.delete_user_btn.Size = new System.Drawing.Size(170, 50);
+            this.delete_user_btn.TabIndex = 45;
+            this.delete_user_btn.Text = "Delete user";
+            this.delete_user_btn.UseVisualStyleBackColor = false;
+            this.delete_user_btn.Click += new System.EventHandler(this.delete_user_btn_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(157)))), ((int)(((byte)(151)))));
             this.ClientSize = new System.Drawing.Size(924, 468);
+            this.Controls.Add(this.delete_user_btn);
             this.Controls.Add(this.logout_btn);
             this.Controls.Add(this.clear_all_btn);
             this.Controls.Add(this.show_all_btn);
@@ -255,5 +271,6 @@ namespace Phonebook.UI
         private System.Windows.Forms.Button show_all_btn;
         private System.Windows.Forms.Button clear_all_btn;
         private System.Windows.Forms.Button logout_btn;
+        private System.Windows.Forms.Button delete_user_btn;
     }
 }

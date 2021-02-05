@@ -17,5 +17,6 @@ namespace Phonebook.Services
         void SetUserType(User user, string type);
         bool AuthUser(string email, string password);
         void StorePassword(string email, string password);
+        Task<bool> DeleteUserAsync(string userid);
     }
 }

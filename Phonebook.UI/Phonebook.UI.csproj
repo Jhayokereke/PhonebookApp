@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NLog" Version="4.7.7" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Phonebook.Models\Phonebook.Models.csproj" />
     <ProjectReference Include="..\Phonebook.Services\Phonebook.Services.csproj" />
     <ProjectReference Include="..\Phonebook.Utilities\Phonebook.Utilities.csproj" />

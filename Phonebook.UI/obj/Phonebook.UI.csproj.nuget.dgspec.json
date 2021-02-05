@@ -237,6 +237,16 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.7, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[4.10.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -248,6 +258,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             },

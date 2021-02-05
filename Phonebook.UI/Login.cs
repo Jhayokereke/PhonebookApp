@@ -14,18 +14,12 @@ namespace Phonebook.UI
     public partial class Login : Form
     {
         private readonly IUserRepository _userRepo;
-        private readonly IAddressRepository _addressRepo;
-        private readonly IPhonenumberRepository _phoneRepo;
-        private readonly ISocialMediaRepository _mediaRepo;
         private readonly User _user;
         private string data = "";
         public Login(User user)
         {
             InitializeComponent();
             _user = user;
-            _addressRepo = new AddressRepository();
-            _mediaRepo = new SocialMediaRepository();
-            _phoneRepo = new PhonenumberRepository();
             _userRepo = new UserRepository();
             update_addr_btn.Visible = false;
             update_media_btn.Visible = false;
@@ -137,6 +131,25 @@ namespace Phonebook.UI
         {
             MessageBox.Show("Goodbye!");
             Close();
+        }
+
+        private void delete_user_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_user.UserType == "Regular")
+                {
+                    throw new AccessViolationException("Sorry, You are not an admin.");
+                }
+                DeleteUser du = new DeleteUser();
+                Hide();
+                du.ShowDialog();
+                Show();
+            }
+            catch (AccessViolationException ae)
+            {
+                MessageBox.Show(ae.Message);
+            }
         }
     }
 }

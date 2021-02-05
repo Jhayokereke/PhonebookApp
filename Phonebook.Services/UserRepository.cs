@@ -209,5 +209,11 @@ namespace Phonebook.Services
             string format = email + "|" + password;
             _fileIO.WritePasswordFile(format);
         }
+
+        public async Task<bool> DeleteUserAsync(string userid)
+        {
+            string cmdtxt = @"delete from tblUser where UserID= '" + userid + "'";
+            return await _dataReader.WriteToDatabase(cmdtxt);
+        }
     }
 }
