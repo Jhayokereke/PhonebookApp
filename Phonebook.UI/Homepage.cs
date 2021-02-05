@@ -5,12 +5,15 @@ using System.Threading;
 using System.Windows.Forms;
 using Phonebook.Models;
 using Phonebook.Utilities.Helpers;
+using Microsoft.Extensions.Logging;
+using NLog;
 
 namespace Phonebook.UI
 {
     internal class Homepage : Form
     {
         private readonly IUserRepository _userRepo;
+        Logger log = LogManager.GetCurrentClassLogger();
 
         private TextBox email_textbox;
         private TextBox password_textBox;
@@ -228,6 +231,7 @@ namespace Phonebook.UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                log.Error(ex);
             }
         }
     }

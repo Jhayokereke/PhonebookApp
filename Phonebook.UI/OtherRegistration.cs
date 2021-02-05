@@ -1,4 +1,6 @@
-﻿using Phonebook.Models;
+﻿using Microsoft.Extensions.Logging;
+using NLog;
+using Phonebook.Models;
 using Phonebook.Services;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,7 @@ namespace Phonebook.UI
         private readonly IPhonenumberRepository _phoneRepo;
         private readonly ISocialMediaRepository _socialRepo;
         private User _user;
+        Logger log = LogManager.GetCurrentClassLogger();
 
         public OtherRegistration(User user)
         {
@@ -41,9 +44,10 @@ namespace Phonebook.UI
                 }
                 MessageBox.Show("Success!");
             }
-            catch (DuplicateNameException ev)
+            catch (Exception ev)
             {
                 MessageBox.Show(ev.Message);
+                log.Error(ev);
             }
         }
 
@@ -66,6 +70,7 @@ namespace Phonebook.UI
             catch (Exception ev)
             {
                 MessageBox.Show(ev.Message);
+                log.Error(ev);
             }
         }
 

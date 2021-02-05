@@ -1,11 +1,8 @@
-﻿using Phonebook.Models;
+﻿using NLog;
+using Phonebook.Models;
 using Phonebook.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Phonebook.UI
@@ -15,6 +12,7 @@ namespace Phonebook.UI
         private readonly IUserRepository _userRepo;
         private readonly IAddressRepository _addressRepository;
         private User _user;
+        Logger log = LogManager.GetCurrentClassLogger();
         public AnotherReg(User user)
         {
             InitializeComponent();
@@ -59,6 +57,7 @@ namespace Phonebook.UI
             catch (Exception ev)
             {
                 MessageBox.Show(ev.Message);
+                log.Error(ev);
             }
         }
     }

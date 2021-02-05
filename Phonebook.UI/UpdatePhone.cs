@@ -1,12 +1,9 @@
-﻿using Phonebook.Models;
+﻿using NLog;
+using Phonebook.Models;
 using Phonebook.Services;
 using Phonebook.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Phonebook.UI
@@ -15,6 +12,7 @@ namespace Phonebook.UI
     {
         private readonly IPhonenumberRepository _phoneRepo;
         private User _currentuser;
+        Logger log = LogManager.GetCurrentClassLogger();
 
         public UpdatePhone(User currentuser)
         {
@@ -50,6 +48,7 @@ namespace Phonebook.UI
                 catch (Exception ev)
                 {
                     MessageBox.Show(ev.Message);
+                    log.Error(ev);
                 }
             }
             else
@@ -81,27 +80,27 @@ namespace Phonebook.UI
                     newnum_txtbox.Text = null;
                     MessageBox.Show("Success!");
 
-                    delete_btn.Visible = true;
-                    update_btn.Visible = true;
-                    phonenumber_txtbox.Visible = true;
-                    phonenumber_label.Visible = true;
-                    newnum_txtbox.Visible = false;
-                    new_num.Visible = false;
-                    new_main_link.Visible = true;
+                    Default();
                 }
                 catch (Exception ea)
                 {
-                    delete_btn.Visible = true;
-                    update_btn.Visible = true;
-                    phonenumber_txtbox.Visible = true;
-                    phonenumber_label.Visible = true;
-                    newnum_txtbox.Visible = false;
-                    new_num.Visible = false;
-                    new_main_link.Visible = true;
+                    Default();
                     MessageBox.Show(ea.Message);
+                    log.Error(ea);
                 }
             }
             
+        }
+
+        private void Default()
+        {
+            delete_btn.Visible = true;
+            update_btn.Visible = true;
+            phonenumber_txtbox.Visible = true;
+            phonenumber_label.Visible = true;
+            newnum_txtbox.Visible = false;
+            new_num.Visible = false;
+            new_main_link.Visible = true;
         }
 
         private async void update_btn_Click(object sender, EventArgs e)
@@ -138,6 +137,7 @@ namespace Phonebook.UI
                     newnum_txtbox.Visible = false;
                     new_num.Visible = false;
                     MessageBox.Show(ev.Message);
+                    log.Error(ev);
                 }
             }
             newnum_txtbox.Visible = true;
@@ -167,6 +167,7 @@ namespace Phonebook.UI
             catch (Exception ev)
             {
                 MessageBox.Show(ev.Message);
+                log.Error(ev);
             }
         }
 

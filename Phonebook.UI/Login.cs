@@ -1,4 +1,6 @@
-﻿using Phonebook.Models;
+﻿using Microsoft.Extensions.Logging;
+using NLog;
+using Phonebook.Models;
 using Phonebook.Services;
 using Phonebook.Utilities.Enums;
 using System;
@@ -16,6 +18,7 @@ namespace Phonebook.UI
         private readonly IUserRepository _userRepo;
         private readonly User _user;
         private string data = "";
+        Logger log = LogManager.GetCurrentClassLogger();
         public Login(User user)
         {
             InitializeComponent();
@@ -59,6 +62,7 @@ namespace Phonebook.UI
             catch (AccessViolationException av)
             {
                 MessageBox.Show(av.Message);
+                log.Error(av);
             }
         }
 
@@ -149,6 +153,7 @@ namespace Phonebook.UI
             catch (AccessViolationException ae)
             {
                 MessageBox.Show(ae.Message);
+                log.Error(ae);
             }
         }
     }

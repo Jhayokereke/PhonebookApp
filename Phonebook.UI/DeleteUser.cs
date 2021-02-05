@@ -1,4 +1,6 @@
-﻿using Phonebook.Models;
+﻿using Microsoft.Extensions.Logging;
+using NLog;
+using Phonebook.Models;
 using Phonebook.Services;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ namespace Phonebook.UI
     public partial class DeleteUser : Form
     {
         private readonly IUserRepository _userRepo;
+        Logger log = LogManager.GetCurrentClassLogger();
         public DeleteUser()
         {
             InitializeComponent();
@@ -38,6 +41,7 @@ namespace Phonebook.UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                log.Error(ex);
             }
         }
 
@@ -53,11 +57,12 @@ namespace Phonebook.UI
                 confirm_btn.Enabled = false;
                 userID_txtbox.Text = null;
             }
-            catch (DBConcurrencyException db)
+            catch (Exception db)
             {
                 MessageBox.Show(db.Message);
                 confirm_btn.Enabled = false;
                 userID_txtbox.Text = null;
+                log.Error(db);
             }
         }
 

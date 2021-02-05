@@ -1,4 +1,6 @@
-﻿using Phonebook.Models;
+﻿using Microsoft.Extensions.Logging;
+using NLog;
+using Phonebook.Models;
 using Phonebook.Services;
 using Phonebook.Utilities;
 using Phonebook.Utilities.Helpers;
@@ -17,6 +19,7 @@ namespace Phonebook.UI
     {
         private readonly IUserRepository _userRepo;
         private readonly IPhonenumberRepository _phoneRepo;
+        Logger log = LogManager.GetCurrentClassLogger();
 
         public Registration()
         {
@@ -86,6 +89,7 @@ namespace Phonebook.UI
             catch (Exception es)
             {
                 MessageBox.Show(es.Message);
+                log.Error(es);
             }
         }
 
