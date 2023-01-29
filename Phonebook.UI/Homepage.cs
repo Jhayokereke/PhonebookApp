@@ -205,9 +205,10 @@ namespace Phonebook.UI
         {
             string email = email_textbox.Text;
             string password = password_textBox.Text;
-            User user = new User();
+            User user;
             try
             {
+                log.Info("Homepage.SignIn::Email: {email}", email);
                 if (string.IsNullOrWhiteSpace(email)||string.IsNullOrWhiteSpace(password))
                 {
                     throw new FormatException("Invalid entry!");

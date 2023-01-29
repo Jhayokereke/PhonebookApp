@@ -36,6 +36,7 @@ namespace Phonebook.UI
                 {
                     throw new NullReferenceException("User does not exist!");
                 }
+                Info_label.Text = $"Are you sure you want to delete User{user.UserID}?";
                 confirm_btn.Enabled = true;
             }
             catch (Exception ex)
@@ -55,6 +56,7 @@ namespace Phonebook.UI
                     throw new DBConcurrencyException("Failed to delete! Try again.");
                 }
                 confirm_btn.Enabled = false;
+                Info_label.Text = $"User{userID_txtbox.Text} deleted";
                 userID_txtbox.Text = null;
             }
             catch (Exception db)

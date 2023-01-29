@@ -1,4 +1,3 @@
-C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Phonebook.Services.csprojAssemblyReference.cache
 C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Phonebook.Services.AssemblyInfoInputs.cache
 C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Phonebook.Services.AssemblyInfo.cs
 C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Phonebook.Services.csproj.CoreCompileInputs.cache
@@ -14,3 +13,5 @@ C:\Users\hp\Git Repository\Week 5\Phonebook.Services\bin\Debug\netcoreapp3.1\Pho
 C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Phonebook.Services.csproj.CopyComplete
 C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Phonebook.Services.dll
 C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Phonebook.Services.pdb
+C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Phonebook.Services.csproj.AssemblyReference.cache
+C:\Users\hp\Git Repository\Week 5\Phonebook.Services\obj\Debug\netcoreapp3.1\Phonebook.Services.GeneratedMSBuildEditorConfig.editorconfig

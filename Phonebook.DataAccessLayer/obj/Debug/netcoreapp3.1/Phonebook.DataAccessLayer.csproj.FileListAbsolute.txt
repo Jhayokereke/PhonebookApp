@@ -6,4 +6,5 @@ C:\Users\hp\Git Repository\Week 5\Phonebook.DataAccessLayer\obj\Debug\netcoreapp
 C:\Users\hp\Git Repository\Week 5\Phonebook.DataAccessLayer\obj\Debug\netcoreapp3.1\Phonebook.DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\hp\Git Repository\Week 5\Phonebook.DataAccessLayer\obj\Debug\netcoreapp3.1\Phonebook.DataAccessLayer.dll
 C:\Users\hp\Git Repository\Week 5\Phonebook.DataAccessLayer\obj\Debug\netcoreapp3.1\Phonebook.DataAccessLayer.pdb
-C:\Users\hp\Git Repository\Week 5\Phonebook.DataAccessLayer\obj\Debug\netcoreapp3.1\Phonebook.DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\hp\Git Repository\Week 5\Phonebook.DataAccessLayer\obj\Debug\netcoreapp3.1\Phonebook.DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\hp\Git Repository\Week 5\Phonebook.DataAccessLayer\obj\Debug\netcoreapp3.1\Phonebook.DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig

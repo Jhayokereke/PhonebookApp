@@ -1,4 +1,3 @@
-C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.csprojAssemblyReference.cache
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.AnotherReg.resources
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.Homepage.resources
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.Login.resources
@@ -36,3 +35,10 @@ C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.dll
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.pdb
 C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.genruntimeconfig.cache
+C:\Users\hp\Git Repository\Week 5\Phonebook.UI\bin\Debug\netcoreapp3.1\NLog.dll
+C:\Users\hp\Git Repository\Week 5\Phonebook.UI\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+C:\Users\hp\Git Repository\Week 5\Phonebook.UI\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.DeleteUser.resources
+C:\Users\hp\Git Repository\Week 5\Phonebook.UI\bin\Debug\netcoreapp3.1\nlog.config
+C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.csproj.AssemblyReference.cache
+C:\Users\hp\Git Repository\Week 5\Phonebook.UI\obj\Debug\netcoreapp3.1\Phonebook.UI.GeneratedMSBuildEditorConfig.editorconfig

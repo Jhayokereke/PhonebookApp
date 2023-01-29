@@ -89,14 +89,13 @@ namespace Phonebook.DataAccessLayer
             SqlDataAdapter dataAdapter = new SqlDataAdapter();
             try
             {
-                using (Connection)
+                using (Connection = new SqlConnection(_connStr))
                 {
                     if (Connection == null)
                     {
                         throw new Exception("Failed to connect!");
                     }
-                    Command.CommandText = cmdtxt;
-                    Command.Connection = Connection;
+                    SqlCommand Command = new SqlCommand(cmdtxt, Connection);
                     Connection.Open();
                     try
                     {

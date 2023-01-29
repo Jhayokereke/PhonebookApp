@@ -38,7 +38,7 @@ namespace Phonebook.Services
         public async Task<bool> UpdateSocialMediaHandle(string userid, string newhandle, string mediatype)
         {
             //Updates handle in database
-            string cmdtxt = @"Update tblSocialMediaHandle set SocialMediaHandle='" + newhandle + "' where UserID='" + userid + "', MediaType='" + mediatype + "'";
+            string cmdtxt = @"Update tblSocialMediaHandle set SocialMediaHandle='" + newhandle + "' where UserID='" + userid + "' and MediaType='" + mediatype + "'";
             return await _dataReader.UpdateDatabase(cmdtxt);
         }
 

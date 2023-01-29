@@ -61,7 +61,7 @@ namespace Phonebook.Services
             if (Validation.ValidatePhonenumber(phonenum))
             {
                 string index = main ? "1" : "0";
-                string cmdtxt = @"Update tblPhonenumber set Phonenumber='" + newPhonenum + "', MainPhonenumber='" + index + "' where UserID='" + userid + "', Phonenumber='" + phonenum + "'";
+                string cmdtxt = @"Update tblPhonenumber set Phonenumber='" + newPhonenum + "', MainPhonenumber='" + index + "' where UserID='" + userid + "' and Phonenumber='" + phonenum + "'";
                 return await _dataReader.UpdateDatabase(cmdtxt);
             }
             throw new FormatException("Invalid phonenumber!");
@@ -71,7 +71,7 @@ namespace Phonebook.Services
         public async Task<bool> DeletePhonenumber(string userid, string phonenum)
         {
             //Deletes phonenumber from database
-            string cmdtxt = @"Delete tblPhonenumber where UserID='"+userid+ "', Phonenumber='" + phonenum + "'";
+            string cmdtxt = @"Delete tblPhonenumber where UserID='"+userid+ "' and Phonenumber='" + phonenum + "'";
             return await _dataReader.UpdateDatabase(cmdtxt);
         }
     }

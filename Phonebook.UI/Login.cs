@@ -36,7 +36,8 @@ namespace Phonebook.UI
 
         public string OutputSchema(User user)
         {
-            string output = $"Name: {user.FirstName} {user.LastName}" +
+            string output = $"UserID: {user.UserID}" +
+                $"\nName: {user.FirstName} {user.LastName}" +
                 $"\nAddress: {user.Address.Street}, {user.Address.City}, {user.Address.State}, {user.Address.ZipCode}, {user.Address.Country}." +
                 $"\nPhonenumber: {string.Join(", ", user.PhoneNumber)}" +
                 $"\nSocialMediaHandles: {string.Join("\n\t", user.SocialMediaHandles)}";

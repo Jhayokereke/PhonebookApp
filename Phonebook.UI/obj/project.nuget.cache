@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "M0GtgOBH1fMmn4hmBptU35c6KJtApX+zqg0GZMw1dVRqGwBXbbTGUkYvwoEhaN1DRzEtkNSDMqknCjltPmdj9A==",
+  "dgSpecHash": "2dD4fRxLaU6iUca9XT4INnBJAHWgR3P8qkMs5qaiopxQFcpL4WWU3E5XryOytfN064k0T8qkjpj6Dgrsxj1lVQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\hp\\Git Repository\\Week 5\\Phonebook.UI\\Phonebook.UI.csproj",
   "expectedPackageFiles": [
@@ -24,7 +24,8 @@
     "C:\\Users\\hp\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\system.data.sqlclient\\4.8.2\\system.data.sqlclient.4.8.2.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
-    "C:\\Users\\hp\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+    "C:\\Users\\hp\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.31\\microsoft.netcore.app.host.win-x64.3.1.31.nupkg.sha512"
   ],
   "logs": []
 }
